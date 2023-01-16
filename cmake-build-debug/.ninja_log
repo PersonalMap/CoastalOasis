@@ -1,0 +1,15 @@
+# ninja log v5
+3	568	1673806336564311136	CMakeFiles/CoastalOasis.dir/hotelClasses/Clients/Internal/employee.cpp.o	c051d7b4308707cf
+236	421	1673804702847050858	CMakeFiles/CoastalOasis.dir/hotelClasses/Schedule/room_scheduleitem.cpp.o	39254d3fa0b36a64
+4	160	1673824013548202390	CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/WeeklySchedule.cpp.o	c3f2902161544b92
+3	235	1673804702661239323	CMakeFiles/CoastalOasis.dir/hotelClasses/Clients/External/user.cpp.o	c38d3f74ae188cff
+3	568	1673806336563467714	CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/employee_scheduleitem.cpp.o	504fad4d4e6809c6
+1290	1437	1673824014827340012	CoastalOasis	eb4bb0bc7eeb7891
+237	420	1673804702846205686	CMakeFiles/CoastalOasis.dir/hotelClasses/Schedule/scheduleitem.cpp.o	351ef074e9affc80
+4	984	1673824014371323951	CMakeFiles/CoastalOasis.dir/main.cpp.o	2eab2f55ef0c45d9
+1	248	1673911694405164120	build.ninja	c0fde545ece021c0
+4	673	1673806270000974473	CMakeFiles/CoastalOasis.dir/hotelClasses/Schedule/facility_scheduleitem.cpp.o	9f01539593aec697
+3	160	1673824013548202390	CMakeFiles/CoastalOasis.dir/hotelClasses/Schedule/WeeklySchedule.cpp.o	6362ee8e6e131da4
+3	568	1673806336563467714	CMakeFiles/CoastalOasis.dir/hotelClasses/Schedule/employee_scheduleitem.cpp.o	9c2bc07506e4164e
+3	237	1673804702663384545	CMakeFiles/CoastalOasis.dir/hotelClasses/Clients/person.cpp.o	2621358d354cc0a3
+3	1290	1673824014676254103	CMakeFiles/CoastalOasis.dir/Frames/Home.cpp.o	39fd09d6579bc0a9

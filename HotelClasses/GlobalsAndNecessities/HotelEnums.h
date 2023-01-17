@@ -7,7 +7,7 @@
 namespace MyEnums
 {
 
-    /* PAGE RELATED */
+    ///* PAGE RELATED */
 
     enum AdminPages
     {
@@ -31,7 +31,7 @@ namespace MyEnums
         ClientControlPanel
     };
 
-    /* ROOM RELATED */
+    ///* ROOM RELATED */
 
     enum RoomType
     {
@@ -50,7 +50,7 @@ namespace MyEnums
 
     };
 
-    /* BOOKING RELATED */
+    ///* BOOKING RELATED */
 
     enum BookingStatus
     {
@@ -76,7 +76,7 @@ namespace MyEnums
 
     };
 
-    /* HOTEL MANAGEMENT RELATED*/
+    ///* HOTEL MANAGEMENT RELATED*/
 
     enum Department
     {
@@ -116,7 +116,7 @@ namespace MyEnums
         GiftShop
     };
 
-    /* Mapping */
+    ///* Mapping */
 
     static std::map<AdminPages, std::string> adminPagesMap = {
             {AdminHome, "AdminHome"},
@@ -207,9 +207,5 @@ namespace MyEnums
              {GiftShop, "GiftShop"}
 
         };
-
-
-
 }
-
 #endif

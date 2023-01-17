@@ -8,37 +8,26 @@ class User: public Person
 
 private:
     std::string _advanceDebugStr;
-    std::string _mejl;
+    std::string _mail;
     std::string _password;
     /* ADD VECTOR WITH BOOKINGS*/
 
 public:
 
-    //constructor
-    User(std::string password,std::string mejl, std::string name, std::string phone, unsigned int age):
-        Person(name, phone,age),_password(password) ,_mejl(mejl){}
+    ///constructor
+    User(std::string password,std::string mail, std::string name, std::string phone, unsigned int age);
     ~User();
 
-    // getter & setter
+    /// getter & setter
+    const std::string& getMail()const{return this->_mail;}
+    const std::string& getPassword()const{return this->_password;}
 
-    const std::string& getMejl(){return this->_mejl;}
-    const std::string& getPassword(){return this->_password;}
-
-    void setMejl(const std::string& newMejl){this->_mejl = newMejl;}
+    void setMail(const std::string& newMail){ this->_mail = newMail;}
     void setPassword(const std::string& newPassword){this->_password = newPassword;}
 
-    // functions
+    /// functions
+    std::string advancedDebug();
 
-    std::string advancedDebug()
-    {
-        _advanceDebugStr = "";
-        _advanceDebugStr = _name + ", " + std::to_string(_age)
-              +  "\n Mejl: " + _mejl
-              + "\n Telefon " + _phoneNumber
-              + "\n Password" + _password;
-        return  _advanceDebugStr;
-
-    }
 };
 
-#endif // USER_H
+#endif

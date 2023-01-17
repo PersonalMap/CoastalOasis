@@ -1,13 +1,9 @@
-//
-// Created by Viktor Liljenberg on 2023-01-15.
-//
 #include <iostream>
 #include <algorithm>
 #include "WeeklySchedule.h"
 
-
-
-WeeklySchedule::WeeklySchedule(std::vector<ScheduleItem> s)
+/// Constructors
+WeeklySchedule::WeeklySchedule(std::vector<ScheduleItem> s) //init with vector
 {
     for(auto item: s)
     {
@@ -15,12 +11,11 @@ WeeklySchedule::WeeklySchedule(std::vector<ScheduleItem> s)
     }
 };
 
-WeeklySchedule::~WeeklySchedule()
-{
+WeeklySchedule::~WeeklySchedule(){};
 
-};
+/// Operators
 
-
+/// Functions
 void WeeklySchedule::addActivity(ScheduleItem& s)
 {
     if (!isBooked(s)) {
@@ -73,9 +68,6 @@ bool WeeklySchedule::isBooked(ScheduleItem& s) {
     }
     return false;
 }
-
-
-
 
 void WeeklySchedule::debug() {
     for (const auto& [year, year_schedule] : _schedule) {

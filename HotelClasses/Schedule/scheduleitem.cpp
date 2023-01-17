@@ -1,10 +1,17 @@
 #include "scheduleitem.h"
 
-ScheduleItem::~ScheduleItem()
-{};
 
+///Constructors
 
-// protected functions
+ScheduleItem::ScheduleItem(std::string activityName, long long startTime, long long endTime, bool booked)
+                                : _activityName(activityName), _booked(booked),
+                                _duration(std::make_pair(startTime, endTime)){};
+ScheduleItem::~ScheduleItem(){};
+
+///Operators
+
+    bool ScheduleItem::operator==(const ScheduleItem& other) const { return this->_duration == other._duration;}
+///Functions
 
 
 void ScheduleItem::debug() const {

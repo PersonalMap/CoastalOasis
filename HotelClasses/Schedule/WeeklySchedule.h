@@ -13,16 +13,19 @@ private:
 
     std::map<int, std::map<int, std::map<int, std::vector<ScheduleItem>>>> _schedule;
 
-    //functions
 public:
+
+    ///Constructors
     WeeklySchedule() = default;
     WeeklySchedule(std::vector<ScheduleItem>);
     ~WeeklySchedule();
 
-    // getters & setters
+    /// getters & setters
+    const std::map<int, std::map<int, std::map<int, std::vector<ScheduleItem>>>>& getSchedule(){return _schedule;}
 
+    ///Operators
 
-    //functions / operators
+    /// functions
     bool isOverlaping(const ScheduleItem& s1, const ScheduleItem& s2); //check for overlaping
     void addActivity(ScheduleItem& s);
     bool isBooked(ScheduleItem& s);
@@ -30,4 +33,4 @@ public:
 
 };
 
-#endif //COASTALOASIS_WEEKLYSCHEDULE_H
+#endif

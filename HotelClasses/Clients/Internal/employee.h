@@ -10,50 +10,40 @@ class Employee : public Person
 {
 private:
     std::string _advancedDebugStr;
-
-    WeeklySchedule _schema;
-
 protected:
+    WeeklySchedule _schedule;
     MyEnums::Department _workRole;
     std::string _employmentDate;
     float _salary;
     unsigned int _acessLevel;
 
     //function
-    float convertAnnualSalary(){return 12*_salary;}
+    float convertAnnualSalary();
 
 public:
 
-    //constructor
-    Employee(MyEnums::Department workRole, std::string employeDate, float salary, unsigned int acessLevel,
-             std::string name, std::string phone, unsigned int age):Person(name, phone, age),
-        _workRole(workRole),_employmentDate(employeDate), _salary(salary), _acessLevel(acessLevel)
-        {
-        _advancedDebugStr = "";
-        }
+    ///constructor
+    Employee(MyEnums::Department workRole, std::string employeDate, float salary,
+             unsigned int acessLevel,std::string name, std::string phone, unsigned int age);
+
     ~Employee();
 
-    //getter & setters
-
-    const MyEnums::Department& getWorkRole(){return this->_workRole;}
-    const std::string& getEmploymentDate(){return this->_employmentDate;}
-    const float& getSalary(){return this->_salary;}
-    const unsigned int& getAcessLevel(){return this->_acessLevel;}
-    inline WeeklySchedule& getScheduleP(){return this->_schema;}
+    ///getter & setters
+    const MyEnums::Department& getWorkRole()const{return this->_workRole;}
+    const std::string& getEmploymentDate()const{return this->_employmentDate;}
+    const float& getSalary()const{return this->_salary;}
+    const unsigned int& getAcessLevel()const{return this->_acessLevel;}
 
     void setWorkRole(const MyEnums::Department& newWorkRole){this->_workRole = newWorkRole;}
     void setEmploymentDate(const std::string& newEmployeementDate){this->_employmentDate = newEmployeementDate;}
     void setSalary(const float& newSalary){this->_salary = newSalary;}
     void setAcessLevel(const unsigned int& newAcessLevel){this->_acessLevel = newAcessLevel;}
-    //add scheduel setters if necissery
 
-    //operations
+    WeeklySchedule& getScheduleP(){return this->_schedule;}
 
-    friend std::ostream& operator<<(std::ostream& os, Employee& e)
-    {
-       return os << e._name << ", " << e._age << "(" << MyEnums::departmentMap[e._workRole] << ")\n"
-       << "AnnualSalary: " << e.convertAnnualSalary() << "$\n"
-       << "Phone: " << e._phoneNumber << "\t" << std::endl;
-    }
+    ///operations
+    bool operator==(const Employee& other); // == operatoror
+
+    friend std::ostream& operator<<(std::ostream& os, Employee& e); //cout
 };
-#endif // EMPLOYEE_H
+#endif

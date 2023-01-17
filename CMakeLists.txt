@@ -29,7 +29,7 @@ file(GLOB_RECURSE SOURCE_FILES
 list(APPEND SOURCE_FILES "${PROJECT_SOURCE_DIR}/main.cpp")
 
 # Create the executable
-add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} HotelClasses/Clients/Internal/Manager.cpp HotelClasses/Clients/Internal/Manager.h)
 
 # Link the executable with the wxWidgets libraries
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})

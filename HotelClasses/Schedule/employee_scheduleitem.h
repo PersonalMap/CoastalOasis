@@ -5,8 +5,7 @@
 #include "../Clients/Internal/employee.h"
 #include <string>
 
-class Employee_scheduleitem : public ScheduleItem
-        {
+class Employee_scheduleitem : public ScheduleItem{
 
 private:
     MyEnums::HotelArea _location;
@@ -14,19 +13,19 @@ private:
 
 public:
 
-    Employee_scheduleitem(Employee employee, MyEnums::HotelArea location, std::string activityName, long long startTime,long long endTime,bool booked):
-    ScheduleItem(activityName, startTime, endTime, booked), _employee(employee), _location(location){};
+    ///constructors
+    Employee_scheduleitem(Employee employee, MyEnums::HotelArea location, std::string activityName,
+                          long long startTime,long long endTime,bool booked);
 
-    ~Employee_scheduleitem(){};
+    ~Employee_scheduleitem();
 
-    //getters & setters
-
-    const MyEnums::HotelArea& getLocation(){return this->_location;}
-    const Employee& getEmployee(){return this->_employee;}
+    ///getters & setters
+    const MyEnums::HotelArea& getLocation()const{return this->_location;}
+    const Employee& getEmployee()const{return this->_employee;}
 
     void setLocation(const MyEnums::HotelArea& hotelArea){this->_location = hotelArea;}
     void setEmployee(const Employee& employee){this->_employee = employee;}
 };
 
 
-#endif //COASTALOASIS_EMPLOYEE_SCHEDULEITEM_H
+#endif

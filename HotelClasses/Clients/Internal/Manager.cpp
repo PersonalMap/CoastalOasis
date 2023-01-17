@@ -25,7 +25,7 @@ Manager::Manager( WeeklySchedule _schedule,std::vector<Employee> employeeList,
                                 this->_schedule = _schedule;
                         }
 
-    Employee::~Employee(){}
+    Manager::~Manager(){}
 
 ///operators
 

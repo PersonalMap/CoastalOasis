@@ -212,4 +212,4 @@ namespace MyEnums
 
 }
 
-#endif  HOTELENUMS_H
+#endif

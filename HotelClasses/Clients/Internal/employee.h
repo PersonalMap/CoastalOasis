@@ -2,6 +2,7 @@
 #define EMPLOYEE_H
 #include <string>
 #include <iostream>
+#include <WeeklySchedule.h>
 #include "../person.h"
 #include "../../GlobalsAndNecessities/HotelEnums.h"
 
@@ -9,6 +10,8 @@ class Employee : public Person
 {
 private:
     std::string _advancedDebugStr;
+
+    WeeklySchedule _schema;
 
 protected:
     MyEnums::Department _workRole;
@@ -18,9 +21,6 @@ protected:
 
     //function
     float convertAnnualSalary(){return 12*_salary;}
-
-    /*LÄGG TILL SCHEMA*/
-
 
 public:
 
@@ -39,11 +39,13 @@ public:
     const std::string& getEmploymentDate(){return this->_employmentDate;}
     const float& getSalary(){return this->_salary;}
     const unsigned int& getAcessLevel(){return this->_acessLevel;}
+    inline WeeklySchedule& getScheduleP(){return this->_schema;}
 
     void setWorkRole(const MyEnums::Department& newWorkRole){this->_workRole = newWorkRole;}
     void setEmploymentDate(const std::string& newEmployeementDate){this->_employmentDate = newEmployeementDate;}
     void setSalary(const float& newSalary){this->_salary = newSalary;}
     void setAcessLevel(const unsigned int& newAcessLevel){this->_acessLevel = newAcessLevel;}
+    //add scheduel setters if necissery
 
     //operations
 

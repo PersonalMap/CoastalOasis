@@ -8,19 +8,19 @@ include("${wxWidgets_USE_FILE}")
 
 # Include headers
 include_directories(
-        hotelClasses/Clients
-        hotelClasses/Clients/External
-        hotelClasses/Clients/Internal
-        hotelClasses/GlobalsAndNecessities
-        hotelClasses/Schedule
+        HotelClasses/Clients
+        HotelClasses/Clients/External
+        HotelClasses/Clients/Internal
+        HotelClasses/GlobalsAndNecessities
+        HotelClasses/Schedule
 
         Frames
         )
 
 # Include all source files in hotelClasses and Frames subfolders
 file(GLOB_RECURSE SOURCE_FILES
-        "${PROJECT_SOURCE_DIR}/hotelClasses/*.h"
-        "${PROJECT_SOURCE_DIR}/hotelClasses/*.cpp"
+        "${PROJECT_SOURCE_DIR}/HotelClasses/*.h"
+        "${PROJECT_SOURCE_DIR}/HotelClasses/*.cpp"
         "${PROJECT_SOURCE_DIR}/Frames/*.h"
         "${PROJECT_SOURCE_DIR}/Frames/*.cpp"
         )
@@ -29,7 +29,7 @@ file(GLOB_RECURSE SOURCE_FILES
 list(APPEND SOURCE_FILES "${PROJECT_SOURCE_DIR}/main.cpp")
 
 # Create the executable
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} HotelClasses/Schedule/employee_scheduleitem.cpp HotelClasses/Schedule/employee_scheduleitem.h HotelClasses/Schedule/WeeklySchedule.cpp HotelClasses/Schedule/WeeklySchedule.h)
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 # Link the executable with the wxWidgets libraries
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})

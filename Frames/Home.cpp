@@ -30,7 +30,15 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
     Employee viktor(MyEnums::Department::HouseKeeping, "2023-01-09",
                 25500, 3 ,  "Viktor", "0733589217", 19);
 
-    std::cout << viktor;
+    ScheduleItem s = ScheduleItem("Städning",202301171930, 202301172030, true);
+    ScheduleItem s2 = ScheduleItem("Städning",202301172030, 202301172130, true);
+
+    viktor.getScheduleP().addActivity(s);
+    viktor.getScheduleP().addActivity(s2);
+
+
+    std::cout << viktor << std::endl;
+    viktor.getScheduleP().debug();
 
 }
 

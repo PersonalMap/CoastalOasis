@@ -23,7 +23,9 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
     // debug
     //
     HTime t = HTime(2023, 1, 9, 20 , 3);
-    std::cout << (t);
+    std::cout << t << std::endl;
+
+
 }
 
 Home::~Home()

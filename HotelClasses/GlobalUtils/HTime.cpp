@@ -10,9 +10,6 @@ HTime::HTime(unsigned int year, unsigned int month, unsigned int day, unsigned i
 HTime::~HTime(){};
 
 ///operators
-
-
-
 HTime HTime::operator+(const HTime &time2) const {
     int sumYear = _year + time2._year;
     int sumMonth = _month + time2._month;
@@ -71,4 +68,20 @@ std::ostream& operator<< (std::ostream& o, const HTime& t)
     std::string month_name = MyEnums::monthMap[static_cast<MyEnums::months>(t._month)];
     o << t._day << day_ending << " " << month_name << " " << t._year;
     return o;
+}
+
+///Functions
+
+
+std::string HTime::getFullDateString()// with seconds minutes
+{
+    std::string s = std::to_string(this->_year) + '/' + std::to_string(this->_month) + "/" +
+                    std::to_string(this->_day) + " " + std::to_string(this->_hour) + ":" + std::to_string(this->_minute);
+    return s;
+}
+std::string HTime::getDateString() //without seconds minutes
+{
+    std::string s = std::to_string(this->_year) + "/" + std::to_string(this->_month) + "/" +
+                    std::to_string(this->_day);
+    return s;
 }

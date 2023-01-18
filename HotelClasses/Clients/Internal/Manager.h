@@ -1,6 +1,8 @@
 #ifndef COASTALOASIS_MANAGER_H
 #define COASTALOASIS_MANAGER_H
 #include "employee.h"
+#include <algorithm>
+
 
 class Manager: public Employee{
 

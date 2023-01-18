@@ -1,9 +1,5 @@
 #include "Hourly.h"
 
-
-
-
-
 ///Constructor
 //default
 Hourly::Hourly(MyEnums::Department workRole, std::string employeDate, float salary,

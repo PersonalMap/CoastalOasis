@@ -1,7 +1,7 @@
 #ifndef FACILITY_SCHEDULEITEM_H
 #define FACILITY_SCHEDULEITEM_H
 #include "scheduleitem.h"
-#include "../GlobalsAndNecessities/HotelEnums.h"
+#include "../GlobalUtils/HotelEnums.h"
 
 class Facility_ScheduleItem: public ScheduleItem
 {

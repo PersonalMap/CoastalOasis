@@ -1,8 +1,5 @@
 #ifndef COASTALOASIS_INTERN_H
 #define COASTALOASIS_INTERN_H
-
-#include <vector>
-#include <string>
 #include "employee.h"
 
 class Intern: public Employee{

@@ -1,4 +1,3 @@
-#include <algorithm>
 #include "Manager.h"
 
 ///*Constructors*/

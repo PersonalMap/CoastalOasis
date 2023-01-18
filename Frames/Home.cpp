@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "Home.h"
-#include "GlobalFunctions.h"
+#include "../GlobalUtils/HTime.h"
 
 
 Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
@@ -22,9 +22,8 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
     //
     // debug
     //
-
-    std::cout << myGlobalFunctions::getCurrentDateTime() << std::endl;
-
+    HTime t = HTime(2023, 1, 9, 20 , 3);
+    std::cout << (t);
 }
 
 Home::~Home()

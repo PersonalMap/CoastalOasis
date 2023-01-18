@@ -1,6 +1,5 @@
 #ifndef USER_H
 #define USER_H
-#include <string>
 #include "../person.h"
 
 class User: public Person

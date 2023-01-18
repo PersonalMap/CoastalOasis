@@ -1,10 +1,9 @@
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
-#include <string>
-#include <iostream>
-#include <WeeklySchedule.h>
+#include "WeeklySchedule.h"
+#include "../../GlobalUtils/HotelEnums.h"
 #include "../person.h"
-#include "../../GlobalsAndNecessities/HotelEnums.h"
+
 
 class Employee : public Person
 {

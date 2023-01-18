@@ -1,7 +1,5 @@
 #ifndef COASTALOASIS_WEEKLYSCHEDULE_H
 #define COASTALOASIS_WEEKLYSCHEDULE_H
-
-#include <string>
 #include <map>
 #include <array>
 #include <vector>

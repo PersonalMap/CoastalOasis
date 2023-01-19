@@ -28,6 +28,9 @@ public:
     void addActivity(ScheduleItem& s);
     bool isBooked(ScheduleItem& s);
     void debug();
+    void removeReservationByDate(const HTime& Date); //removes first one that day, meant for rooms
+    void removeReservationByObject(const ScheduleItem& object);
+    bool isThereActivityThatDay(const HTime& Date); //only info down to day is being used
 
 };
 

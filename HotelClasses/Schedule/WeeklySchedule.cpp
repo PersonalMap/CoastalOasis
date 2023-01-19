@@ -81,4 +81,13 @@ void WeeklySchedule::debug() {
     }
 }
 
+void WeeklySchedule::removeReservationByDate(const HTime& Date)
+{
+    _schedule[Date.getYear()][Date.getMonth()][Date.getDay()].erase(
+                _schedule[Date.getYear()][Date.getMonth()][Date.getDay()].begin(),
+                _schedule[Date.getYear()][Date.getMonth()][Date.getDay()].end());
+}
 
+void WeeklySchedule::removeReservationByObject(const ScheduleItem& object)
+{
+}

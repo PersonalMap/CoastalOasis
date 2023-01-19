@@ -134,6 +134,10 @@ namespace MyEnums
         November,
         December
     };
+
+    static const std::vector<unsigned int> daysOfMonth =
+            { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
     ///* Mapping */
 
     static std::map<AdminPages, std::string> adminPagesMap = {

@@ -9,8 +9,7 @@ private:
     bool _booked;
 public:
     ///Constructors
-    Room_scheduleitem(User booker, bool booked, std::string activityName,
-                      const HTime& startTime, const HTime& endTime);
+    Room_scheduleitem(User booker, bool booked, const HTime& startTime, const HTime& endTime);
     ~Room_scheduleitem();
 
     ///getters & setters

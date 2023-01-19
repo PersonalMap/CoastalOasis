@@ -14,8 +14,8 @@ private:
 public:
 
     ///constructors
-    Employee_scheduleitem(Employee employee, MyEnums::HotelArea location, std::string activityName,
-                          long long startTime,long long endTime,bool booked);
+    Employee_scheduleitem(const Employee& employee, MyEnums::HotelArea location,
+                          std::string activityName, const HTime& startTime,const HTime& endTime);
 
     ~Employee_scheduleitem();
 

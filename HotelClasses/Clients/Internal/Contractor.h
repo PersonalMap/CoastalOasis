@@ -11,13 +11,13 @@ private:
 public:
     ///Constructor
     //default
-    Contractor(MyEnums::Department workRole, std::string employeDate, float salary,
-                   unsigned int acessLevel,std::string name, std::string phone, unsigned int age);
+    Contractor(MyEnums::Department workRole,const HTime& employeDate, float salary,
+                   unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
 
     //init with hour salary
-    Contractor(HTime, MyEnums::Department workRole, std::string employeDate, float salary,
-               unsigned int acessLevel, std::string name, std::string phone, unsigned int age);
-    ~Contractor(){};
+    Contractor(const HTime&, MyEnums::Department workRole,const HTime& employeeDate, float salary,
+               unsigned int accessLevel, std::string name, std::string phone, unsigned int age);
+    ~Contractor();
 
     ///Getters & Setters
     const HTime& getEndDate()const{return this->_endDate;};

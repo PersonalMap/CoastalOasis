@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include "Home.h"
-#include "../GlobalUtils/HTime.h"
+#include "Intern.h"
+#include "employee_scheduleitem.h"
+#include "HotelEnums.h"
 
 
 Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
@@ -22,8 +24,20 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
     //
     // debug
     //
-    HTime t = HTime(2023, 1, 9, 20 , 3);
-    std::cout << t << std::endl;
+    Intern viktor(MyEnums::Department::Security, HTime("202309230800"),
+                  32000, 5, "Viktor", "0733589217", 19);
+
+
+    Employee_scheduleitem activity(viktor, MyEnums::HotelArea::ConferenceRooms,
+                                   "Möte", HTime("202312121200"), HTime("202312121400"));
+
+    Employee_scheduleitem activity2(viktor, MyEnums::HotelArea::ConferenceRooms,
+                                   "Möte", HTime("202311121200"), HTime("202311121400"));
+
+
+    viktor.getScheduleP().addActivity(activity);
+    viktor.getScheduleP().addActivity(activity2);
+    viktor.getScheduleP().debug();
 
 
 }

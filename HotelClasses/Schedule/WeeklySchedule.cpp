@@ -1,9 +1,10 @@
 #include <iostream>
 #include <algorithm>
 #include "WeeklySchedule.h"
+#include "HotelEnums.h"
 
 /// Constructors
-WeeklySchedule::WeeklySchedule(std::vector<ScheduleItem> s) //init with vector
+WeeklySchedule::WeeklySchedule(const std::vector<ScheduleItem>& s) //init with vector
 {
     for(auto item: s)
     {
@@ -11,7 +12,7 @@ WeeklySchedule::WeeklySchedule(std::vector<ScheduleItem> s) //init with vector
     }
 };
 
-WeeklySchedule::~WeeklySchedule(){};
+WeeklySchedule::~WeeklySchedule()=default;
 
 /// Operators
 
@@ -19,13 +20,8 @@ WeeklySchedule::~WeeklySchedule(){};
 void WeeklySchedule::addActivity(ScheduleItem& s)
 {
     if (!isBooked(s)) {
-        auto duration = s.getDuration();
-        //first
-        int start_year = duration.first / 100000000;
-        int start_month = (duration.first / 1000000) % 100;
-        int start_day = (duration.first / 10000) % 100;
-
-        _schedule[start_year][start_month][start_day].push_back(s);
+         const auto& duration = s.getDuration();
+        _schedule[(int)duration.first.getYear()][(int)duration.first.getMonth()][(int)duration.first.getDay()].push_back(s);
     }
     else
     {
@@ -37,16 +33,21 @@ void WeeklySchedule::addActivity(ScheduleItem& s)
 
 bool WeeklySchedule::isOverlaping(const ScheduleItem& s1, const ScheduleItem& s2) {
     // Get the duration of each ScheduleItem
-    auto s1_duration = s1.getDuration();
-    auto s2_duration = s2.getDuration();
+    const auto& s1_duration = s1.getDuration();
+    const auto& s2_duration = s2.getDuration();
+    const auto s11 = s1_duration.first.getAsNumbers();
+    const auto s12 = s1_duration.second.getAsNumbers();
+    const auto s21 = s2_duration.first.getAsNumbers();
+    const auto s22 = s2_duration.second.getAsNumbers();
+
 
     // Check if the start time of the first ScheduleItem is between the start and end times of the second ScheduleItem
-    if (s1_duration.first > s2_duration.first && s1_duration.first < s2_duration.second) {
+    if (s11 > s21 && s11 < s22) {
         return true;
     }
 
     // Check if the end time of the first ScheduleItem is between the start and end times of the second ScheduleItem
-    if (s1_duration.second > s2_duration.first && s1_duration.second < s2_duration.second) {
+    if (s12 > s21 && s12< s22) {
         return true;
     }
 
@@ -56,12 +57,8 @@ bool WeeklySchedule::isOverlaping(const ScheduleItem& s1, const ScheduleItem& s2
 
 
 bool WeeklySchedule::isBooked(ScheduleItem& s) {
-    auto duration = s.getDuration();
-    int year = duration.first / 100000000;
-    int month = (duration.first / 1000000) % 100;
-    int day = (duration.first / 10000) % 100;
-
-    for (auto item : _schedule[year][month][day]) {
+    const auto& duration = s.getDuration();
+    for (const auto& item : _schedule[(int)duration.first.getYear()][(int)duration.first.getMonth()][(int)duration.first.getDay()]) {
         if (isOverlaping(s, item)) {
             return true;
         }
@@ -73,7 +70,7 @@ void WeeklySchedule::debug() {
     for (const auto& [year, year_schedule] : _schedule) {
         std::cout << "Year: " << year << std::endl;
         for (const auto& [month, month_schedule] : year_schedule) {
-            std::cout << "  Month: " << month << std::endl;
+            std::cout << "  Month: " << MyEnums::monthMap[static_cast<MyEnums::months>(month)] << std::endl;
             for (const auto& [day, day_schedule] : month_schedule) {
                 std::cout << "    Day: " << day << std::endl;
                 for (const auto& s : day_schedule) {

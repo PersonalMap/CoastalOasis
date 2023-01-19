@@ -2,16 +2,16 @@
 
 ///Constructor
 //default
-Hourly::Hourly(MyEnums::Department workRole, std::string employeDate, float salary,
+Hourly::Hourly(MyEnums::Department workRole, const HTime& employeDate, float salary,
                unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-        :Employee(workRole, employeDate, salary, acessLevel, name, phone, age),
+        :Employee(workRole, employeDate, salary, acessLevel,std::move(name),std::move(phone),std::move(age)),
          _hourSalary(0), _hoursWorked(0){}
 //init with hour salary
-Hourly::Hourly(unsigned int hourSalary, MyEnums::Department workRole, std::string employeDate, float salary,
+Hourly::Hourly(unsigned int hourSalary, MyEnums::Department workRole,const HTime& employeDate, float salary,
                unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-        :Employee(workRole, employeDate, salary, acessLevel, name, phone, age),
+        :Employee(workRole, employeDate, salary, acessLevel, std::move(name),std::move(phone), std::move(age)),
          _hourSalary(hourSalary), _hoursWorked(0){}
-Hourly::~Hourly(){};
+Hourly::~Hourly()=default;
 
 ///Operators
 

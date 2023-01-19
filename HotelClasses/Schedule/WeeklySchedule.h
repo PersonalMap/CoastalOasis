@@ -15,7 +15,7 @@ public:
 
     ///Constructors
     WeeklySchedule() = default;
-    WeeklySchedule(std::vector<ScheduleItem>);
+    explicit WeeklySchedule(const std::vector<ScheduleItem>&);
     ~WeeklySchedule();
 
     /// getters & setters
@@ -24,7 +24,7 @@ public:
     ///Operators
 
     /// functions
-    bool isOverlaping(const ScheduleItem& s1, const ScheduleItem& s2); //check for overlaping
+    static bool isOverlaping(const ScheduleItem& s1, const ScheduleItem& s2); //check for overlaping
     void addActivity(ScheduleItem& s);
     bool isBooked(ScheduleItem& s);
     void debug();

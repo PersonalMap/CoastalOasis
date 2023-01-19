@@ -3,39 +3,33 @@
 ///*Constructors*/
 
 //default
-Manager::Manager(MyEnums::Department workRole, std::string employeDate, float salary,
-                 unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-                       :Employee(workRole, employeDate, salary, acessLevel, name, phone, age){}
+Manager::Manager(MyEnums::Department workRole,const HTime& employeeDate, float salary,
+                 unsigned int accessLevel,std::string name, std::string phone, unsigned int age)
+                       :Employee(workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age){}
 
 //employee list
 Manager::Manager(std::vector<Employee> employeeList, MyEnums::Department workRole,
-                 std::string employeDate, float salary, unsigned int acessLevel,
+                 const HTime& employeeDate, float salary, unsigned int accessLevel,
                  std::string name, std::string phone, unsigned int age)
-                     :Employee(workRole, employeDate, salary, acessLevel, name, phone, age),
-                     _employeeList(employeeList){}
+                     :Employee(workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
+                     _employeeList(std::move(employeeList)){}
 
 //employee list + finished schedule
-Manager::Manager( WeeklySchedule _schedule,std::vector<Employee> employeeList,
-                  MyEnums::Department workRole, std::string employeDate, float salary,
-                  unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-                  :Employee(workRole, employeDate, salary, acessLevel, name, phone, age),
-                  _employeeList(employeeList)
+Manager::Manager( const WeeklySchedule& _schedule,std::vector<Employee> employeeList,
+                  MyEnums::Department workRole, const HTime& employeeDate, float salary,
+                  unsigned int accessLevel,std::string name, std::string phone, unsigned int age)
+                  :Employee(workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
+                  _employeeList(std::move(employeeList))
                         {
                                 this->_schedule = _schedule;
                         }
 
-    Manager::~Manager(){}
+    Manager::~Manager()=default;
 
-///operators
-
-bool Manager::operator==(const Employee& other)
-{
-    return (this->_phoneNumber == other.getPhone());
-}
 
 ///functions
 
-void Manager::addEmployee(Employee employee){_employeeList.push_back(employee);}
+void Manager::addEmployee(const Employee& employee){_employeeList.push_back(employee);}
 void Manager::removeEmployee(const Employee& employee)
 {
     auto it = std::find(_employeeList.begin(), _employeeList.end(), employee);

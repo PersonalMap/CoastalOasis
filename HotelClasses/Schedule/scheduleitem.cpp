@@ -3,54 +3,28 @@
 
 ///Constructors
 
-ScheduleItem::ScheduleItem(std::string activityName, long long startTime, long long endTime, bool booked)
-                                : _activityName(activityName), _booked(booked),
+ScheduleItem::ScheduleItem(std::string activityName, const HTime& startTime, const HTime& endTime)
+                                : _activityName(std::move(activityName)),
                                 _duration(std::make_pair(startTime, endTime)){};
-ScheduleItem::~ScheduleItem(){};
+ScheduleItem::~ScheduleItem() = default;
 
 ///Operators
 
-    bool ScheduleItem::operator==(const ScheduleItem& other) const { return this->_duration == other._duration;}
+    bool ScheduleItem::operator==(const ScheduleItem& other) const
+        { return this->_duration.first.getDebugDateString() == other._duration.first.getDebugDateString();}
 ///Functions
 
 
 void ScheduleItem::debug() const {
-    std::cout << _activityName << " Duration: " << convertToTime().first << "-" << convertToTime().second << std::endl;
+        std::string isZero1 = "";
+    std::string isZero2 = "";
+        if(std::stoi(_duration.first.getRawHourMinute().substr(2)) == 0){isZero1 = "0";}
+    if(std::stoi(_duration.second.getRawHourMinute().substr(2)) == 0){isZero2 = "0";}
+
+
+    std::cout << _activityName << " Duration: " << _duration.first.getRawHourMinute()
+      << isZero1 << "-" << _duration.second.getRawHourMinute() << isZero2 << std::endl;
 }
 
 
-std::pair<std::string, std::string> ScheduleItem::convertTimeToDate() //CONVERTS to 0109 format mmdd
-{
-    errorCheckTime();
 
-    size_t StartLenght = std::to_string(_duration.first).length();
-    std::string start_str = std::to_string(_duration.first).substr(2, StartLenght-8);
-    std::string end_str = std::to_string(_duration.first).substr(4, StartLenght-6);
-
-    return std::make_pair(std::string(start_str), std::string(end_str));
-}
-
-std::pair<std::string, std::string> ScheduleItem::convertToTime() const  //converts to hhmm format
-{
-    errorCheckTime();
-
-    std::string start_str = std::to_string(_duration.first).substr(8);
-    std::string end_str = std::to_string(_duration.second).substr(8);
-
-    return std::make_pair(std::string(start_str), std::string(end_str));
-}
-
-
-void ScheduleItem::errorCheckTime()const //is time valid? error checking
-{
-    try {
-        //MORE THAN ZERO?
-        if (this->_duration.first <= 0 || this->_duration.second <= 0) {
-            throw std::invalid_argument("Invalid time");
-        }
-
-        } catch (const std::invalid_argument& e) {
-            // code to handle the exception
-            std::cout << "Error: " << e.what() << std::endl;
-        }
-}

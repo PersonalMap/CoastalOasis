@@ -3,17 +3,17 @@
 
 ///Constructor
 //default
-Intern::Intern(MyEnums::Department workRole, std::string employeDate, float salary,
+Intern::Intern(MyEnums::Department workRole, const HTime& employeDate, float salary,
                 unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-                    :Employee(workRole, employeDate, salary, acessLevel, name, phone, age){};
+                    :Employee(workRole, employeDate, salary, acessLevel, std::move(name), std::move(phone), std::move(age)){};
 
 //create with references
-Intern::Intern(std::vector<std::string> references,MyEnums::Department workRole, std::string employeDate, float salary,
+Intern::Intern(std::vector<std::string> references,MyEnums::Department workRole,const HTime& employeDate, float salary,
                 unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-                    :Employee(workRole, employeDate, salary, acessLevel, name, phone, age)
-                ,_references(references){};
+                    :Employee(workRole, employeDate, salary, acessLevel, std::move(name), std::move(phone), std::move(age))
+                ,_references(std::move(references)){};
 
-Intern::~Intern(){}
+Intern::~Intern()=default;
 ///Operators
 
 ///Functions

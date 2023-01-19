@@ -2,12 +2,12 @@
 
 ///Constructors
 
-Room_scheduleitem::Room_scheduleitem(User booker, bool booked, std::string activityName,
-                                     long long startTime, long long endTime)
-                                        :ScheduleItem(activityName, startTime, endTime, booked)
-                                    ,_booker(booker){}
+Room_scheduleitem::Room_scheduleitem(User booker, bool isbooked, std::string activityName,
+                                     const HTime& startTime, const HTime& endTime)
+                                        :ScheduleItem(std::move(activityName), startTime, endTime)
+                                    ,_booker(booker), _booked(isbooked){}
 
-Room_scheduleitem::~Room_scheduleitem(){};
+Room_scheduleitem::~Room_scheduleitem()=default;
 ///Operators
 
 ///Functions

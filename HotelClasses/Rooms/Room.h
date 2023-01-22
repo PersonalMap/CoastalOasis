@@ -48,7 +48,11 @@ public:
     void RemoveReservationByObject(const Room_scheduleitem& reservations);
     bool IsRoomAvailable(const HTime& start, const HTime& end);
 
+    //operator
 
+    bool operator==(const Room& rhs) const {
+        return this->_roomNumber == rhs.getRoomNumber() && this->_roomNumber == rhs.getRoomNumber();
+    }
 
 
 };

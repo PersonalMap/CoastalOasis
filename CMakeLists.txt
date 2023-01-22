@@ -14,7 +14,10 @@ include_directories(
         HotelClasses/GlobalUtils
         HotelClasses/Schedule
         HotelClasses/Rooms
+        HotelClasses/Bookings
         Frames
+        DataBase
+        DataBase/Data
         )
 
 # Include all source files in hotelClasses and Frames subfolders
@@ -29,8 +32,12 @@ file(GLOB_RECURSE SOURCE_FILES
         "${PROJECT_SOURCE_DIR}/HotelClasses/Schedule/*.h"
         "${PROJECT_SOURCE_DIR}/HotelClasses/Rooms/*.cpp"
         "${PROJECT_SOURCE_DIR}/HotelClasses/Rooms/*.h"
+        "${PROJECT_SOURCE_DIR}/HotelClasses/Bookings/*.cpp"
+        "${PROJECT_SOURCE_DIR}/HotelClasses/Bookings/*.h"
         "${PROJECT_SOURCE_DIR}/Frames/*.h"
         "${PROJECT_SOURCE_DIR}/Frames/*.cpp"
+        "${PROJECT_SOURCE_DIR}/DataBase/*.h"
+        "${PROJECT_SOURCE_DIR}/DataBase/*.cpp"
         )
 
 # Add main.cpp as the only source file that is not in subfolders

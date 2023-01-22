@@ -7,7 +7,7 @@
 4	1087	1674087132473945387	CMakeFiles/CoastalOasis.dir/Frames/Home.cpp.o	aa0e375d0c9563c8
 5	356	1673972653171168440	CMakeFiles/CoastalOasis.dir/hotelClasses/Clients/person.cpp.o	2621358d354cc0a3
 4	327	1673972758302766375	CMakeFiles/CoastalOasis.dir/hotelClasses/Schedule/WeeklySchedule.cpp.o	6362ee8e6e131da4
-0	252	1674397428869015422	build.ninja	4bd5f275d8c52ad9
+0	252	1674423728198026495	build.ninja	4bd5f275d8c52ad9
 4	672	1674075092936927417	CMakeFiles/CoastalOasis.dir/main.cpp.o	75d67a27fa07e16
 4	752	1674086285551787751	CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Contractor.cpp.o	d746f5e0baeb45b3
 5	350	1674086953793953150	CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/scheduleitem.cpp.o	fc568f3626e5efc2
@@ -20,10 +20,10 @@
 8	1145	1674086087808350215	CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Manager.cpp.o	34366b38fb25eb41
 5	654	1674074691049177788	CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalsAndNecessities/HTime.cpp.o	77c728345a4bd570
 4	631	1674086446670921871	CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils/HTime.cpp.o	18487f09c84d7430
-8	1064	1674086087725543142	CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Intern.cpp.o	1e88f0268f787a16
 5	341	1674075052112221494	CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/person.cpp.o	c5f1142825d8193a
-5	306	1673972698163695435	CMakeFiles/CoastalOasis.dir/hotelClasses/Schedule/room_scheduleitem.cpp.o	39254d3fa0b36a64
+8	1064	1674086087725543142	CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Intern.cpp.o	1e88f0268f787a16
 4	594	1673972758569111775	CMakeFiles/CoastalOasis.dir/hotelClasses/Clients/Internal/employee.cpp.o	c051d7b4308707cf
-5	359	1673972653175281855	CMakeFiles/CoastalOasis.dir/hotelClasses/Clients/External/user.cpp.o	c38d3f74ae188cff
 738	897	1674072539627782328	CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalsAndNecessities/myTime.cpp.o	a3b15a45e923817d
+5	359	1673972653175281855	CMakeFiles/CoastalOasis.dir/hotelClasses/Clients/External/user.cpp.o	c38d3f74ae188cff
+5	306	1673972698163695435	CMakeFiles/CoastalOasis.dir/hotelClasses/Schedule/room_scheduleitem.cpp.o	39254d3fa0b36a64
 798	973	1674075052745682045	CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils/Utilities.cpp.o	b45ef62979a4db33

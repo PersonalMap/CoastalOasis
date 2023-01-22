@@ -46,19 +46,59 @@ cmake_ninja_workdir = /Users/vango/CLionProjects/CoastalOasis/cmake-build-debug/
 
 build cmake_object_order_depends_target_CoastalOasis: phony || CMakeFiles/CoastalOasis.dir
 
+build CMakeFiles/CoastalOasis.dir/DataBase/Read.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/DataBase/Read.cpp || cmake_object_order_depends_target_CoastalOasis
+  DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
+  DEP_FILE = CMakeFiles/CoastalOasis.dir/DataBase/Read.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  OBJECT_DIR = CMakeFiles/CoastalOasis.dir
+  OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/DataBase
+
+build CMakeFiles/CoastalOasis.dir/DataBase/Write.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/DataBase/Write.cpp || cmake_object_order_depends_target_CoastalOasis
+  DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
+  DEP_FILE = CMakeFiles/CoastalOasis.dir/DataBase/Write.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  OBJECT_DIR = CMakeFiles/CoastalOasis.dir
+  OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/DataBase
+
 build CMakeFiles/CoastalOasis.dir/Frames/Home.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/Frames/Home.cpp || cmake_object_order_depends_target_CoastalOasis
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/Frames/Home.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/Frames
+
+build CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings/Booking.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings/Booking.cpp || cmake_object_order_depends_target_CoastalOasis
+  DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
+  DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings/Booking.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  OBJECT_DIR = CMakeFiles/CoastalOasis.dir
+  OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings
+
+build CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings/Payment.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings/Payment.cpp || cmake_object_order_depends_target_CoastalOasis
+  DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
+  DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings/Payment.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  OBJECT_DIR = CMakeFiles/CoastalOasis.dir
+  OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings
+
+build CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings/Recipe.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings/Recipe.cpp || cmake_object_order_depends_target_CoastalOasis
+  DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
+  DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings/Recipe.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  OBJECT_DIR = CMakeFiles/CoastalOasis.dir
+  OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings
 
 build CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/External/user.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External/user.cpp || cmake_object_order_depends_target_CoastalOasis
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/External/user.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/External
 
@@ -66,7 +106,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Contractor.cpp.o
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Contractor.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal
 
@@ -74,7 +114,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Hourly.cpp.o: CX
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Hourly.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal
 
@@ -82,7 +122,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Intern.cpp.o: CX
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Intern.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal
 
@@ -90,7 +130,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Manager.cpp.o: C
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Manager.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal
 
@@ -98,7 +138,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/employee.cpp.o: 
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/employee.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal
 
@@ -106,7 +146,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/person.cpp.o: CXX_COMPILE
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/person.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Clients
 
@@ -114,7 +154,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils/HTime.cpp.o: CXX_COMP
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils/HTime.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils
 
@@ -122,15 +162,47 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils/Utilities.cpp.o: CXX_
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils/Utilities.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils
+
+build CMakeFiles/CoastalOasis.dir/HotelClasses/Hotel.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/HotelClasses/Hotel.cpp || cmake_object_order_depends_target_CoastalOasis
+  DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
+  DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Hotel.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  OBJECT_DIR = CMakeFiles/CoastalOasis.dir
+  OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses
+
+build CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/DoubleRoom.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms/DoubleRoom.cpp || cmake_object_order_depends_target_CoastalOasis
+  DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
+  DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/DoubleRoom.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  OBJECT_DIR = CMakeFiles/CoastalOasis.dir
+  OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms
 
 build CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/Room.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms/Room.cpp || cmake_object_order_depends_target_CoastalOasis
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/Room.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  OBJECT_DIR = CMakeFiles/CoastalOasis.dir
+  OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms
+
+build CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/SingleRoom.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms/SingleRoom.cpp || cmake_object_order_depends_target_CoastalOasis
+  DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
+  DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/SingleRoom.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  OBJECT_DIR = CMakeFiles/CoastalOasis.dir
+  OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms
+
+build CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/Suite.cpp.o: CXX_COMPILER__CoastalOasis_Debug /Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms/Suite.cpp || cmake_object_order_depends_target_CoastalOasis
+  DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
+  DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/Suite.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms
 
@@ -138,7 +210,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/WeeklySchedule.cpp.o: CX
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/WeeklySchedule.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule
 
@@ -146,7 +218,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/employee_scheduleitem.cp
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/employee_scheduleitem.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule
 
@@ -154,7 +226,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/facility_scheduleitem.cp
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/facility_scheduleitem.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule
 
@@ -162,7 +234,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/room_scheduleitem.cpp.o:
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/room_scheduleitem.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule
 
@@ -170,7 +242,7 @@ build CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/scheduleitem.cpp.o: CXX_
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/scheduleitem.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule
 
@@ -178,7 +250,7 @@ build CMakeFiles/CoastalOasis.dir/main.cpp.o: CXX_COMPILER__CoastalOasis_Debug /
   DEFINES = -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__
   DEP_FILE = CMakeFiles/CoastalOasis.dir/main.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++11
-  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/Frames -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
+  INCLUDES = -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/External -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Clients/Internal -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/GlobalUtils -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Schedule -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Rooms -I/Users/vango/CLionProjects/CoastalOasis/HotelClasses/Bookings -I/Users/vango/CLionProjects/CoastalOasis/Frames -I/Users/vango/CLionProjects/CoastalOasis/DataBase -I/Users/vango/CLionProjects/CoastalOasis/DataBase/Data -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -isystem /opt/homebrew/include/wx-3.2
   OBJECT_DIR = CMakeFiles/CoastalOasis.dir
   OBJECT_FILE_DIR = CMakeFiles/CoastalOasis.dir
 
@@ -190,7 +262,7 @@ build CMakeFiles/CoastalOasis.dir/main.cpp.o: CXX_COMPILER__CoastalOasis_Debug /
 #############################################
 # Link the executable CoastalOasis
 
-build CoastalOasis: CXX_EXECUTABLE_LINKER__CoastalOasis_Debug CMakeFiles/CoastalOasis.dir/Frames/Home.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/External/user.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Contractor.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Hourly.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Intern.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Manager.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/employee.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/person.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils/HTime.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils/Utilities.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/Room.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/WeeklySchedule.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/employee_scheduleitem.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/facility_scheduleitem.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/room_scheduleitem.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/scheduleitem.cpp.o CMakeFiles/CoastalOasis.dir/main.cpp.o
+build CoastalOasis: CXX_EXECUTABLE_LINKER__CoastalOasis_Debug CMakeFiles/CoastalOasis.dir/DataBase/Read.cpp.o CMakeFiles/CoastalOasis.dir/DataBase/Write.cpp.o CMakeFiles/CoastalOasis.dir/Frames/Home.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings/Booking.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings/Payment.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Bookings/Recipe.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/External/user.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Contractor.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Hourly.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Intern.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Manager.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/employee.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/person.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils/HTime.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/GlobalUtils/Utilities.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Hotel.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/DoubleRoom.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/Room.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/SingleRoom.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Rooms/Suite.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/WeeklySchedule.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/employee_scheduleitem.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/facility_scheduleitem.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/room_scheduleitem.cpp.o CMakeFiles/CoastalOasis.dir/HotelClasses/Schedule/scheduleitem.cpp.o CMakeFiles/CoastalOasis.dir/main.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  -L/opt/homebrew/lib  -framework IOKit  -framework Carbon  -framework Cocoa  -framework QuartzCore  -framework AudioToolbox  -framework System  -framework OpenGL  -lwx_osx_cocoau_core-3.2  -lwx_baseu-3.2
   LINK_PATH = -L/opt/homebrew/lib

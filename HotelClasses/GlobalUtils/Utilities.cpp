@@ -39,3 +39,11 @@ unsigned int Utilities::getNumberOfDays(HTime start, HTime end)
     return itterations;
 
 }
+
+static unsigned int generateUniqeNmbr()
+{
+    time_t current_time = time(nullptr);
+    srand(current_time);
+    return (unsigned int)current_time + rand();
+
+}

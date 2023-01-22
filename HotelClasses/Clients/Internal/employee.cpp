@@ -14,11 +14,6 @@ Employee::~Employee()=default;
 
 ///*OPERATORS*/
 
-bool Employee::operator==(const Employee& other) // == operator
-{
-    return(this->_phoneNumber == other._phoneNumber);
-}
-
 std::ostream& operator<<(std::ostream& os, Employee& e) // cout
 {
 return os << e._name << ", " << e._age << "(" << MyEnums::departmentMap[e._workRole] << ")\n"

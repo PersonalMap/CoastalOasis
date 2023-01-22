@@ -24,6 +24,12 @@ public:
     void setMail(const std::string& newMail){ this->_mail = newMail;}
     void setPassword(const std::string& newPassword){this->_password = newPassword;}
 
+    ///operator
+    bool operator==(const User& rhs) const {
+        return this->_mail == rhs.getMail() && this->_password == rhs.getPassword();
+    }
+
+
     /// functions
     std::string advancedDebug();
 

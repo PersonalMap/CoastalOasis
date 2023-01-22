@@ -41,7 +41,9 @@ public:
     WeeklySchedule& getScheduleP(){return this->_schedule;}
 
     ///operations
-    bool operator==(const Employee& other); // == operatoror
+    bool operator==(const Employee& rhs) const {
+        return this->_phoneNumber == rhs.getPhone() && this->_name == rhs.getName();
+    }
 
     friend std::ostream& operator<<(std::ostream& os, Employee& e); //cout
 };

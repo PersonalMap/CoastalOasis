@@ -1,12 +1,18 @@
 #include "Room.h"
 
+#include <utility>
+
 ///Constructors
 
-Room::Room(unsigned roomNumber, unsigned price):_roomNumber(roomNumber),_price(price){};
-Room::Room(std::string description, unsigned roomNumber, unsigned price)
-            :_description(description),_roomNumber(roomNumber),_price(price){};
-Room::Room(WeeklySchedule reservations, std::string description, unsigned roomNumber, unsigned price)
-            :_reservations(reservations),_description(description),_roomNumber(roomNumber),_price(price){};
+Room::Room(MyEnums::RoomType roomType,unsigned roomNumber, unsigned price)
+            :_bedSize(MyEnums::BedType::Single120),_roomType(roomType) ,_reservations(),
+            _description(""),_roomNumber(roomNumber),_price(price){};
+Room::Room(MyEnums::BedType bedSize,MyEnums::RoomType roomType,std::string description, unsigned roomNumber, unsigned price)
+            :_bedSize(bedSize),_roomType(roomType),_reservations()
+            ,_description(std::move(description)),_roomNumber(roomNumber),_price(price){};
+Room::Room(MyEnums::BedType bedSize,MyEnums::RoomType roomType,const WeeklySchedule& reservations, std::string description, unsigned roomNumber, unsigned price)
+            :_bedSize(bedSize),_roomType(roomType),_reservations(reservations),
+            _description(std::move(description)),_roomNumber(roomNumber),_price(price){};
 Room::~Room()=default;
 
 ///Functions
@@ -21,41 +27,36 @@ void Room::AddReservationByDate(const HTime& start, const HTime& end, const User
     Room_scheduleitem r = Room_scheduleitem(user, true, start, end);
 }
 
-void Room::RemoveReservationByDate(const HTime& startDate, const HTime& endDate)
+void Room::RemoveReservationByDate(const HTime& startDate)
 {
-    _reservations.removeReservationByDate(startDate, endDate);
+    _reservations.removeReservationByDate(startDate);
 }
 
 void Room::RemoveReservationByObject(const Room_scheduleitem& reservation)
-{  bool free = true;
+{
+    this->_reservations.removeReservationByObject(reservation);
+}
 
-    unsigned int startDay = reservation.getDuration().first.getDay();
-    unsigned int endDay = reservation.getDuration().second.getDay();
-    auto dayOfMonth = MyEnums::daysOfMonth[reservation.getDuration().first.getMonth()];
-    auto tempRes = reservation;
-
-    int itterations = 0;
-
-    if(endDay > startDay)
-    {
-        itterations = endDay - startDay;
-    }
-    else
-    {
-        itterations = (dayOfMonth - startDay) + endDay;
-    }
+bool Room::IsRoomAvailable(const HTime& start, const HTime& end)
+{
+    bool activityThatDay = false;
+    auto dayOfMonth = MyEnums::daysOfMonth[start.getMonth()];
+    int itterations = Utilities::getNumberOfDays(start, end);
 
     for(int i = 0; i < itterations; i++)
     {
         int j = i;
         int monthAddition = 0;
         if(i > dayOfMonth){j = 0 + i;monthAddition = 1;};
-        this->_reservations.removeReservationByDate(HTime(reservation.getDuration().first.getYear(),
-                                      reservation.getDuration().first.getMonth()+monthAddition,
-                                      startDay + j, 12, 30));
-    }
-}
-bool Room::IsRoomAvailable(const HTime& start, const HTime& end)
-{
-  ///ofärdig
+        activityThatDay = this->_reservations.isThereActivityThatDay(HTime(
+                                                    start.getYear(),
+                                                   start.getMonth()+monthAddition,
+                                                   start.getDay() + j,
+                                                   12,
+                                                   30
+        ));
+    };
+    if(activityThatDay){return false;}
+    else {return true;}
+
 }

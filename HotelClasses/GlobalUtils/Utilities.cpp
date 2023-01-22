@@ -19,3 +19,23 @@ std::string Utilities::getCounterEnder(const unsigned int i)
     }
     return s;
 }
+
+unsigned int Utilities::getNumberOfDays(HTime start, HTime end)
+{
+    unsigned int startDay = start.getDay();
+    unsigned int endDay = end.getDay();
+    auto dayOfMonth = MyEnums::daysOfMonth[start.getMonth()];
+
+    int itterations = 0;
+    //get numbers of days that the event is
+    if(endDay > startDay)
+    {
+        itterations = endDay - startDay;
+    }
+    else
+    {
+        itterations = (dayOfMonth - startDay) + endDay;
+    }
+    return itterations;
+
+}

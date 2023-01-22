@@ -9,7 +9,7 @@ class WeeklySchedule {
 
 private:
 
-    std::map<int, std::map<int, std::map<int, std::vector<ScheduleItem>>>> _schedule;
+    std::map<int, std::map<int, std::map<int, std::vector<ScheduleItem>>>> _schedule ;
 
 public:
 

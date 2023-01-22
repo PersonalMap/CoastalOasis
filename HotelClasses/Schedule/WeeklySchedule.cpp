@@ -4,13 +4,13 @@
 #include "HotelEnums.h"
 
 /// Constructors
-WeeklySchedule::WeeklySchedule(const std::vector<ScheduleItem>& s) //init with vector
+WeeklySchedule::WeeklySchedule(const std::vector<ScheduleItem>& s): _schedule() //init with vector
 {
     for(auto item: s)
     {
         addActivity(item);
     }
-};
+}
 
 WeeklySchedule::~WeeklySchedule()=default;
 
@@ -83,11 +83,66 @@ void WeeklySchedule::debug() {
 
 void WeeklySchedule::removeReservationByDate(const HTime& Date)
 {
-    _schedule[Date.getYear()][Date.getMonth()][Date.getDay()].erase(
-                _schedule[Date.getYear()][Date.getMonth()][Date.getDay()].begin(),
-                _schedule[Date.getYear()][Date.getMonth()][Date.getDay()].end());
+    _schedule[(int)Date.getYear()][(int)Date.getMonth()][(int)Date.getDay()].erase(
+                _schedule[(int)Date.getYear()][(int)Date.getMonth()][(int)Date.getDay()].begin(),
+                _schedule[(int)Date.getYear()][(int)Date.getMonth()][(int)Date.getDay()].end());
 }
 
 void WeeklySchedule::removeReservationByObject(const ScheduleItem& object)
 {
+    //find first key
+    auto outerMapIter = _schedule.find((int)object.getDuration().first.getYear());
+    if (outerMapIter != _schedule.end()) {
+        //find second key
+        auto middleMapIter = outerMapIter->second.find((int)object.getDuration().first.getMonth());
+        if (middleMapIter != outerMapIter->second.end()) {
+            //find third key
+            auto innerMapIter = middleMapIter->second.find((int)object.getDuration().first.getDay());
+            if (innerMapIter != middleMapIter->second.end()) {
+                auto& itemVector = innerMapIter->second; // this is our vector with object
+                auto itemIter = std::find(itemVector.begin(), itemVector.end(), object);
+                if (itemIter != itemVector.end()) {
+                    itemVector.erase(itemIter);
+                }
+            }
+        }
+    }
+
+}
+
+
+bool WeeklySchedule::isThereActivityThatDay(const HTime& Date)
+{
+    int key1 = (int)(Date.getYear());
+    int key2 = (int)(Date.getMonth());
+    int key3 = (int)(Date.getDay());
+
+    auto outerMapIter = _schedule.find(key1);
+    if (outerMapIter != _schedule.end()) {
+        auto middleMapIter = outerMapIter->second.find(key2);
+        if (middleMapIter != outerMapIter->second.end()) {
+            auto innerMapIter = middleMapIter->second.find(key3);
+            if (innerMapIter != middleMapIter->second.end()) {
+                auto& itemVector = innerMapIter->second;
+                if (itemVector.empty()) {
+                    return false;
+                    // the vector is empty at key1, key2, key3
+                } else {
+                    return true;
+                    // the vector is not empty at key1, key2, key3
+                }
+            } else {
+                return false;
+                // key3 is not present in the map
+            }
+        } else {
+            return false;
+            // key2 is not present in the map
+        }
+    } else {
+        return false;
+        // key1 is not present in the map
+    }
+
+
 }

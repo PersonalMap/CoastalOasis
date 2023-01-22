@@ -29,6 +29,7 @@ public:
     bool operator==(const ScheduleItem& other) const; // defines how class should be compared
 
 
+
 };
 
 #endif

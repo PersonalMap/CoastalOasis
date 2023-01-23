@@ -1,6 +1,7 @@
 #include "Suite.h"
 
 ///constructors
+Suite::Suite(){};
 Suite::Suite(unsigned roomNumber, unsigned price):
         Room(MyEnums::RoomType::Suite, roomNumber, price),
         _hasBalcony(false), _hasSpa(false)

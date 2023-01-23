@@ -8,6 +8,7 @@ private:
         bool _hasSpa;
 public:
     ///constructor
+    Suite();
     Suite(unsigned roomNumber, unsigned price);
     Suite(bool hasBalcony, bool hasSpa,MyEnums::BedType bedSize,std::string description, unsigned roomNumber, unsigned price);
     Suite(bool hasBalcony, bool hasSpa,MyEnums::BedType bedSize,const WeeklySchedule& reservations, std::string description, unsigned roomNumber, unsigned price);

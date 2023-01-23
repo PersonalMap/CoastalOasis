@@ -12,7 +12,7 @@ private:
 
 public:
     ///Constructor
-
+    Hourly();
     //default
     Hourly(MyEnums::Department workRole, const HTime& employeDate, float salary,
     unsigned int acessLevel,std::string name, std::string phone, unsigned int age);
@@ -37,6 +37,9 @@ public:
     void addHours(const unsigned int& h){this->_hoursWorked += h;}
     void subtractHour(){_hoursWorked--;}
     void subtractHours(const unsigned int& h){this->_hoursWorked -= h;}
+
+    void parse(const std::string& data);
+    std::string to_string() const;
 };
 
 

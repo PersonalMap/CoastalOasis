@@ -1,6 +1,7 @@
 #ifndef USER_H
 #define USER_H
 #include "../person.h"
+#include "Utilities.h"
 
 class User: public Person
 {
@@ -14,6 +15,7 @@ private:
 public:
 
     ///constructor
+    User();
     User(std::string password,std::string mail, std::string name, std::string phone, unsigned int age);
     ~User();
 
@@ -33,6 +35,8 @@ public:
     /// functions
     std::string advancedDebug();
 
+    void parse(std::string data);
+    std::string to_string()const;
 };
 
 #endif

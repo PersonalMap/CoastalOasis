@@ -40,10 +40,20 @@ unsigned int Utilities::getNumberOfDays(HTime start, HTime end)
 
 }
 
-static unsigned int generateUniqeNmbr()
+   unsigned int Utilities::generateUniqeNmbr()
 {
     time_t current_time = time(nullptr);
     srand(current_time);
     return (unsigned int)current_time + rand();
 
+}
+
+  std::vector<std::string> Utilities::split(const std::string& data, char delimiter) {
+    std::vector<std::string> parts;
+    std::stringstream ss(data);
+    std::string token;
+    while (std::getline(ss, token, delimiter)) {
+        parts.push_back(token);
+    }
+    return parts;
 }

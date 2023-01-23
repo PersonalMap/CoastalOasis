@@ -11,6 +11,7 @@ private:
 public:
     ///Constructor
     //default
+    Contractor();
     Contractor(MyEnums::Department workRole,const HTime& employeDate, float salary,
                    unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
 
@@ -23,6 +24,10 @@ public:
     const HTime& getEndDate()const{return this->_endDate;};
     void setEndDate(const HTime& endDate){ this->_endDate = endDate;};
 
+    //functions
+
+    void parse(std::string data);
+    std::string to_string();
 
 
 };

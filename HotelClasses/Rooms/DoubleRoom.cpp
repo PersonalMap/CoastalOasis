@@ -1,7 +1,7 @@
 #include "DoubleRoom.h"
 
 ///constructors
-
+DoubleRoom::DoubleRoom(){};
 DoubleRoom::DoubleRoom(unsigned roomNumber, unsigned price):
         Room(MyEnums::RoomType::Double, roomNumber, price),
         _Beds(1), _Rooms(3)

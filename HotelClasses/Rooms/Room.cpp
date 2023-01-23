@@ -3,7 +3,7 @@
 #include <utility>
 
 ///Constructors
-
+Room::Room(){};
 Room::Room(MyEnums::RoomType roomType,unsigned roomNumber, unsigned price)
             :_bedSize(MyEnums::BedType::Single120),_roomType(roomType) ,_reservations(),
             _description(""),_roomNumber(roomNumber),_price(price){};
@@ -58,5 +58,14 @@ bool Room::IsRoomAvailable(const HTime& start, const HTime& end)
     };
     if(activityThatDay){return false;}
     else {return true;}
+}
+
+
+void Room::parse(std::string data) const
+{
+
+}
+std::string Room::to_string()const
+{
 
 }

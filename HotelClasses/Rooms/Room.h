@@ -20,6 +20,7 @@ private:
 public:
 
     ///Constructors
+    Room();
     Room(MyEnums::RoomType roomType, unsigned roomNumber, unsigned price);
     Room(MyEnums::BedType bedSize,MyEnums::RoomType roomType,std::string description, unsigned roomNumber, unsigned price);
     Room(MyEnums::BedType bedSize,MyEnums::RoomType roomType,const WeeklySchedule& reservations, std::string description, unsigned roomNumber, unsigned price);
@@ -48,11 +49,17 @@ public:
     void RemoveReservationByObject(const Room_scheduleitem& reservations);
     bool IsRoomAvailable(const HTime& start, const HTime& end);
 
-    //operator
+
+    void parse(std::string data)const;
+    std::string to_string()const;
+
+    ///operator
 
     bool operator==(const Room& rhs) const {
         return this->_roomNumber == rhs.getRoomNumber() && this->_roomNumber == rhs.getRoomNumber();
     }
+
+
 
 
 };

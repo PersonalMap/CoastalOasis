@@ -13,6 +13,7 @@ public:
 
     ///Constructor
     //default
+    Intern();
     Intern(MyEnums::Department workRole, const HTime& employeeDate, float salary,
            unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
     //create with references
@@ -31,7 +32,8 @@ public:
     ///Functions
     void AddReference(const std::string r);
 
-
+    void parse(std::string data);
+    std::string to_string();
 
 };
 

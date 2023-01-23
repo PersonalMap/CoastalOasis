@@ -8,6 +8,7 @@ private:
     unsigned int _windows;
 public:
     ///constructors
+    SingleRoom();
     SingleRoom(unsigned roomNumber, unsigned price);
     SingleRoom(unsigned int windows,MyEnums::BedType bedSize, std::string description, unsigned roomNumber, unsigned price);
     SingleRoom(unsigned int windows,MyEnums::BedType bedSize, const WeeklySchedule& reservations,

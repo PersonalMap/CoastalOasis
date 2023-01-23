@@ -1,6 +1,7 @@
 #include "SingleRoom.h"
 
 ///constructors
+SingleRoom::SingleRoom(){};
 SingleRoom::SingleRoom(unsigned roomNumber, unsigned price):
         Room(MyEnums::RoomType::Single, roomNumber, price)
                 , _windows(2)

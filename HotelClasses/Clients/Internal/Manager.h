@@ -12,6 +12,7 @@ public:
 
     ///*Constructors*/
             //default constructor
+            Manager();
     Manager(MyEnums::Department workRole, const HTime& employeeDate, float salary,
             unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
 
@@ -36,6 +37,8 @@ public:
         void addEmployee(const Employee& employee);
         void removeEmployee(const Employee& employee);
 
+        void parse(std::string data);
+        std::string to_string() const;
 };
 
 

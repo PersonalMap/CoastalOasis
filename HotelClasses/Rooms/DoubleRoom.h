@@ -8,6 +8,7 @@ private:
 
 public:
     ///Constructor
+    DoubleRoom();
     DoubleRoom(unsigned roomNumber, unsigned price);
     DoubleRoom(unsigned int beds, unsigned int rooms,MyEnums::BedType bedSize,std::string description, unsigned roomNumber, unsigned price);
     DoubleRoom(unsigned int beds, unsigned int rooms,MyEnums::BedType bedSize,const WeeklySchedule& reservations, std::string description, unsigned roomNumber, unsigned price);

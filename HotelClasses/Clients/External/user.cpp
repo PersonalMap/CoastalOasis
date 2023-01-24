@@ -8,6 +8,12 @@ Person(name, phone,age),_password(password) ,_mail(mail){}
 User::~User(){}
 
 ///* Operators */
+std::ostream& operator<<(std::ostream& os, const User& u) {
+    return os << u._name << ", " << u._age << "\n"
+              << "Email: " << u._mail << "\n"
+              << "Phone: " << u._phoneNumber << "\t" << std::endl;
+}
+
 
 ///* Functions */
 

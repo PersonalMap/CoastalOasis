@@ -6,20 +6,20 @@
 Manager::Manager(){};
 Manager::Manager(MyEnums::Department workRole,const HTime& employeeDate, float salary,
                  unsigned int accessLevel,std::string name, std::string phone, unsigned int age)
-                       :Employee(workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age){}
+                       :Employee(MyEnums::WorkPosition::Manager, workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age){}
 
 //employee list
 Manager::Manager(std::vector<Employee> employeeList, MyEnums::Department workRole,
                  const HTime& employeeDate, float salary, unsigned int accessLevel,
                  std::string name, std::string phone, unsigned int age)
-                     :Employee(workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
+                     :Employee(MyEnums::WorkPosition::Manager,workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
                      _employeeList(std::move(employeeList)){}
 
 //employee list + finished schedule
 Manager::Manager( const WeeklySchedule& _schedule,std::vector<Employee> employeeList,
                   MyEnums::Department workRole, const HTime& employeeDate, float salary,
                   unsigned int accessLevel,std::string name, std::string phone, unsigned int age)
-                  :Employee(workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
+                  :Employee(MyEnums::WorkPosition::Manager, workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
                   _employeeList(std::move(employeeList))
                         {
                                 this->_schedule = _schedule;
@@ -47,7 +47,15 @@ void Manager::parse(std::string data)
         employee.parse(parts[i]);
         _employeeList.push_back(employee);
     }
-    Employee::parse(parts[parts.size()-7]);
+
+    std::stringstream ss;
+    for (auto i = parts.begin() + parts.size()-7; i != parts.end(); ++i) {
+        ss << *i;
+        if (i + 1 != parts.end()) {
+            ss << ":";
+        }
+    }
+    Employee::parse(ss.str());
 }
 std::string Manager::to_string()const
 {

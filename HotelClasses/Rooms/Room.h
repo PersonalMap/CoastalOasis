@@ -32,7 +32,7 @@ public:
     const std::string& getDescription()const{return this->_description;}
     const WeeklySchedule& getWeeklySchedule()const{return this->_reservations;}
     WeeklySchedule& getWeeklyScheduleRef(){return this->_reservations;} //used to modify schedule, be careful
-    const MyEnums::RoomType& getRoomType(){return this->_roomType;}
+    const MyEnums::RoomType& getRoomType()const{return this->_roomType;}
     const MyEnums::BedType& getBedSize(){return this->_bedSize;}
 
     void setRoomNumber(const unsigned int& roomNumber){this->_roomNumber = roomNumber;}
@@ -54,6 +54,7 @@ public:
     std::string to_string()const;
 
     ///operator
+    friend std::ostream& operator<<(std::ostream& os, const Room& r);
 
     bool operator==(const Room& rhs) const {
         return this->_roomNumber == rhs.getRoomNumber() && this->_roomNumber == rhs.getRoomNumber();

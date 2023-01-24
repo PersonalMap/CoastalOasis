@@ -17,8 +17,10 @@ public:
     static unsigned int getNumberOfDays(HTime start, HTime end);
     static unsigned int generateUniqeNmbr();
 
-    static std::vector<std::string>
-    split(const std::string& data, char delimiter);
+    static std::vector<std::string> split(const std::string& data, char delimiter);
+    static std::string join(std::vector<std::string> parts, char delimiter);
+
+
 
 };
 #endif //COASTALOASIS_UTILITIES_H

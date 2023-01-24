@@ -2,10 +2,10 @@
 #include <wx/stattext.h>
 
 #include <iostream>
+
+#include "../Hotel.h"
 #include "Home.h"
-#include "Intern.h"
-#include "employee_scheduleitem.h"
-#include "HotelEnums.h"
+#include "Manager.h"
 
 
 Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
@@ -20,25 +20,15 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
     this->Centre();
     this->SetBackgroundColour(wxColour(0,0,255));
 
+    Hotel myHotel = Hotel();
 
-    //
-    // debug
-    //
-    Intern viktor(MyEnums::Department::Security, HTime("202309230800"),
-                  32000, 5, "Viktor", "0733589217", 19);
+    HTime end = HTime("202303092100");
+    Manager viktor = Manager(MyEnums::Department::Security, end, 20000, 5, "Viktor", "0733589217", 18);
 
 
-    Employee_scheduleitem activity(viktor, MyEnums::HotelArea::ConferenceRooms,
-                                   "Möte", HTime("202312121200"), HTime("202312121400"));
 
-    Employee_scheduleitem activity2(viktor, MyEnums::HotelArea::ConferenceRooms,
-                                   "Möte", HTime("202311121200"), HTime("202311121400"));
-
-
-    viktor.getScheduleP().addActivity(activity);
-    viktor.getScheduleP().addActivity(activity2);
-    viktor.getScheduleP().debug();
-
+    ///Debug
+    myHotel.printEmployees();
 
 }
 

@@ -15,7 +15,7 @@ class Person
 
  public:
     ///constructors
-    Person(){};
+    Person();
     Person(std::string, std::string, unsigned int);
     ~Person();
 

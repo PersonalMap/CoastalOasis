@@ -6,12 +6,12 @@
 Intern::Intern(){};
 Intern::Intern(MyEnums::Department workRole, const HTime& employeDate, float salary,
                 unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-                    :Employee(workRole, employeDate, salary, acessLevel, std::move(name), std::move(phone), std::move(age)){};
+                    :Employee(MyEnums::WorkPosition::Intern,workRole, employeDate, salary, acessLevel, std::move(name), std::move(phone), std::move(age)){};
 
 //create with references
 Intern::Intern(std::vector<std::string> references,MyEnums::Department workRole,const HTime& employeDate, float salary,
                 unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-                    :Employee(workRole, employeDate, salary, acessLevel, std::move(name), std::move(phone), std::move(age))
+                    :Employee(MyEnums::WorkPosition::Intern, workRole, employeDate, salary, acessLevel, std::move(name), std::move(phone), std::move(age))
                 ,_references(std::move(references)){};
 
 Intern::~Intern()=default;
@@ -32,7 +32,16 @@ void Intern::parse(std::string data)
     {
         _references.push_back(parts[i]);
     }
-    Employee::parse(parts[parts.size()-7]);
+    std::stringstream ss;
+    for (auto i = parts.begin() + parts.size()-7; i != parts.end(); ++i) {
+        ss << *i;
+        if (i + 1 != parts.end()) {
+            ss << ":";
+        }
+    }
+    Employee::parse(ss.str());
+
+
 }
 std::string Intern::to_string()
 {

@@ -22,7 +22,7 @@ public:
     const std::pair<HTime, HTime>& getDuration() const{return this->_duration;}
 
     void setActivityName(const std::string& newActivityName){this->_activityName = newActivityName;}
-    void setDuration(const std::pair<HTime, HTime>& duration){this->_duration = _duration;}
+    void setDuration(const std::pair<HTime, HTime>& duration){this->_duration = duration;}
 
     ///operators
     void debug() const; //debug

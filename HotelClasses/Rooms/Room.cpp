@@ -15,6 +15,16 @@ Room::Room(MyEnums::BedType bedSize,MyEnums::RoomType roomType,const WeeklySched
             _description(std::move(description)),_roomNumber(roomNumber),_price(price){};
 Room::~Room()=default;
 
+///operators
+
+std::ostream& operator<<(std::ostream& os, const Room& r) {
+    return os << "Room Number: " << r._roomNumber << "\n"
+              << "Price: " << r._price << "$\n"
+              << "Description: " << r._description << "\n"
+              << "Room Type: " << MyEnums::roomTypeMap[r._roomType] << "\n"
+              << "Bed Size: " << MyEnums::bedTypeMap[r._bedSize] << std::endl;
+}
+
 ///Functions
 
 void Room::AddReservationByObject(Room_scheduleitem& reservation)

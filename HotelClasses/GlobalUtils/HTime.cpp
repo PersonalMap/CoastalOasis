@@ -101,9 +101,27 @@ std::string HTime::getDebugDateString() const //without seconds minutes
 
 std::string HTime::getRawFullDateString() const
 {
-    std::string s = std::to_string(this->_year) + std::to_string(this->_month) +
-                    std::to_string(this->_day) + std::to_string(this->_hour) + std::to_string(this->_minute);
+    std::string s = std::to_string(_year);
+    if(_month < 10)
+    {
+        s += "0" + std::to_string(_month);
+    }else{s += std::to_string(_month);}
+    if(_day < 10)
+    {
+        s += "0" + std::to_string(_day);
+    }else{s += std::to_string(_day);}
+    if(_hour < 10)
+    {
+        s += "0" + std::to_string(_hour);
+    }else{s += std::to_string(_hour);}
+    if(_minute < 10)
+    {
+        s += "0" + std::to_string(_minute);
+    }else{s += std::to_string(_minute);}
+
     return s;
+
+
 }
 std::string HTime::getRawDateString() const
 {

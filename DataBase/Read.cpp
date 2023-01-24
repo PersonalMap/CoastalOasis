@@ -7,8 +7,8 @@
 #include "DoubleRoom.h"
 #include "Suite.h"
 
-void Read::readUsers(std::map<std::string, User>& users, const std::string& fileName) {
-    std::ifstream file(fileName);
+void Read::readUsers(std::map<std::string, User>& users) {
+    std::ifstream file(UserFilePath);
     std::string line;
     while (std::getline(file, line)) {
         User user;
@@ -17,12 +17,12 @@ void Read::readUsers(std::map<std::string, User>& users, const std::string& file
     }
     file.close();
 }
-void Read::readEmployees(std::map<std::string, Employee>& employees, const std::string& fileName) {
-    std::ifstream file(fileName);
+void Read::readEmployees(std::map<std::string, Employee>& employees) {
+    std::ifstream file(EmployeeFilePath);
     std::string line;
     while (std::getline(file, line)) {
         Employee employee;
-        if(line.substr(0,7) == "Contractor")
+        if(line.substr(0,10) == "Contractor")
             employee = Contractor();
         else if(line.substr(0,6) == "Hourly")
             employee = Hourly();
@@ -38,8 +38,8 @@ void Read::readEmployees(std::map<std::string, Employee>& employees, const std::
 
 
 
-void Read::readRooms(std::map<unsigned int, Room>& rooms, const std::string& fileName) {
-    std::ifstream file(fileName);
+void Read::readRooms(std::map<unsigned int, Room>& rooms) {
+    std::ifstream file(RoomFilePath);
     std::string line;
     while (std::getline(file, line)) {
         Room room;

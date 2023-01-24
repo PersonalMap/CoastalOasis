@@ -57,3 +57,16 @@ unsigned int Utilities::getNumberOfDays(HTime start, HTime end)
     }
     return parts;
 }
+
+std::string Utilities::join(std::vector<std::string> parts, char delimiter) {
+    std::string joined = "";
+    for (int i = 0; i < parts.size(); i++) {
+        if (i == parts.size() - 1) {
+            joined += parts[i];
+        }
+        else {
+            joined += parts[i] + delimiter;
+        }
+    }
+    return joined;
+}

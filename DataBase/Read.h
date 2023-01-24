@@ -9,10 +9,13 @@
 
 class Read {
 
+    std::string EmployeeFilePath = "/Users/vango/CLionProjects/CoastalOasis/DataBase/Data/Employees.txt";
+    std::string UserFilePath = "/Users/vango/CLionProjects/CoastalOasis/DataBase/Data/Users.txt";
+    std::string RoomFilePath = "/Users/vango/CLionProjects/CoastalOasis/DataBase/Data/Rooms.txt";
 public:
-    void readUsers(std::map<std::string, User>& users, const std::string& fileName);
-    void readEmployees(std::map<std::string, Employee>& employees, const std::string& fileName);
-    void readRooms(std::map<unsigned int, Room>& rooms, const std::string& fileName);
+    void readUsers(std::map<std::string, User>& users);
+    void readEmployees(std::map<std::string, Employee>& employees);
+    void readRooms(std::map<unsigned int, Room>& rooms);
 
 };
 #endif //COASTALOASIS_READ_H

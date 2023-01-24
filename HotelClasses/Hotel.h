@@ -11,6 +11,7 @@
 #include "user.h"
 #include "employee.h"
 #include "Room.h"
+#include "Write.h"
 class Hotel {
 
 private:
@@ -20,10 +21,13 @@ private:
      std::string _userKey;
      std::string _employeeKey;
      unsigned int _roomKey;
+     Write _write;
+     Read _read;
 
      std::map<std::string, User> _users; //phone
      std::map<std::string, Employee> _employees; //phone
      std::map<unsigned int, Room> _rooms; //room number
+
 
 public:
     ///Constructors
@@ -61,7 +65,8 @@ public:
     std::string getEmployeeKey(const Employee& employee); //get matching key
     std::string getEmployeeKeyByPhone(const std::string& phoneNumber);//get matching key by phone
     unsigned int getRoomKey(const Room& room);
-
+    void readInHotel();
+    void writeHotel();
     //Add
     void addUser(User& user);
     void addEmployee(Employee& employee);
@@ -71,6 +76,10 @@ public:
     void removeEmployee(Employee& employee);
     void removeRoom(Room& room);
 
+    //debug
+    void printEmployees();
+    void printUsers();
+    void printRooms();
 
 };
 #endif //COASTALOASIS_HOTELL_H

@@ -1,20 +1,15 @@
 #include "Hotel.h"
 
 ///Constructors
-Hotel::Hotel(): _roomKey(), _userKey(), _employeeKey(), _users(), _employees(), _rooms()
+Hotel::Hotel(): _roomKey(), _userKey(), _employeeKey(), _users(), _employees(), _rooms(), _read(), _write()
 {
-    Read read = Read(); //lets read in some data
-    read.readEmployees(_employees, "./Data/Employees");
-    read.readUsers(_users, "./Data/Users");
-    read.readRooms(_rooms, "./Data/Rooms");
+
+    readInHotel();
 
 }
 Hotel::~Hotel()
 {
-    Write write = Write(); //lets write over the information from this seassion
-    write.writeEmployees(_employees, "./Data/Employees");
-    write.writeUsers(_users, "./Data/Users");
-    write.writeRooms(_rooms, "./Data/Rooms");
+    writeHotel();
 }
 
 /// KEY RELATED
@@ -67,10 +62,56 @@ unsigned int Hotel::getRoomKey(const Room& room)
 
 /// ADDING & DELETING from MAP
 
-void Hotel::addUser(User& user){this->_users.insert({user.getPhone(), user});}
-void Hotel::addEmployee(Employee& employee){this->_employees.insert({employee.getPhone(), employee});}
-void Hotel::addRoom(Room& room){this->_rooms.insert({room.getRoomNumber(), room});}
+void Hotel::addUser(User& user)
+{
+    this->_users.insert({user.getPhone(), user});
+    writeHotel();
+}
+void Hotel::addEmployee(Employee& employee)
+{
+    this->_employees.insert({employee.getPhone(), employee});
+    writeHotel();
+}
+
+void Hotel::addRoom(Room& room)
+{
+    this->_rooms.insert({room.getRoomNumber(), room});
+    writeHotel();
+}
 //delete
 void Hotel::removeUser(User& user){_users.erase(this->getUserKey(user));}
 void Hotel::removeEmployee(Employee& employee){_employees.erase(this->getEmployeeKey(employee));} //erase employee with our getKey function
 void Hotel::removeRoom(Room& room){_rooms.erase(this->getRoomKey(room));}
+
+void Hotel::readInHotel()
+{
+    _read.readEmployees(_employees);
+    _read.readUsers(_users);
+    _read.readRooms(_rooms);
+}
+void Hotel::writeHotel()
+{
+    _write.writeEmployees(_employees);
+    _write.writeUsers(_users);
+    _write.writeRooms(_rooms);
+}
+
+
+void Hotel::printEmployees()
+{
+    for (const auto& [key, employee]: _employees) {
+        std::cout << employee;
+    }
+}
+void Hotel::printUsers()
+{
+    for (const auto& [key, user]: _users) {
+        std::cout << user;
+    }
+}
+void Hotel::printRooms()
+{
+    for (const auto& [key, room]: _rooms) {
+        std::cout << room;
+    }
+}

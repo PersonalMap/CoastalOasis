@@ -27,6 +27,8 @@ public:
     void setPassword(const std::string& newPassword){this->_password = newPassword;}
 
     ///operator
+    friend std::ostream& operator<<(std::ostream& os, const User& u);
+
     bool operator==(const User& rhs) const {
         return this->_mail == rhs.getMail() && this->_password == rhs.getPassword();
     }

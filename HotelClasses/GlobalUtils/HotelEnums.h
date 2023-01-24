@@ -4,6 +4,7 @@
 #define HOTELENUMS_H
 #include <map>
 #include <string>
+#include <vector>
 #include <iostream>
 
 namespace MyEnums
@@ -95,6 +96,14 @@ namespace MyEnums
 
     };
 
+    enum WorkPosition
+    {
+        Contractor,
+        Hourly,
+        Intern,
+        Manager
+    };
+
     enum WorkSchedule
     {
         fullTime,
@@ -135,8 +144,7 @@ namespace MyEnums
         December
     };
 
-    static const std::vector<unsigned int> daysOfMonth =
-            { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    static const std::vector<unsigned int> daysOfMonth = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     ///* Mapping */
 

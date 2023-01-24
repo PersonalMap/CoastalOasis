@@ -16,6 +16,7 @@ protected:
     HTime _employmentDate;
     float _salary;
     unsigned int _acessLevel;
+    MyEnums::WorkPosition _position;
 
     //function
     float convertAnnualSalary();
@@ -24,7 +25,7 @@ public:
 
     ///constructor
     Employee();
-    Employee(MyEnums::Department workRole, const HTime& employeDate, float salary,
+    Employee(MyEnums::WorkPosition pos,MyEnums::Department workRole, const HTime& employeDate, float salary,
             unsigned int acessLevel,std::string name, std::string phone,unsigned int age);
 
     ~Employee();
@@ -34,11 +35,13 @@ public:
     const HTime& getEmploymentDate()const{return this->_employmentDate;}
     const float& getSalary()const{return this->_salary;}
     const unsigned int& getAcessLevel()const{return this->_acessLevel;}
+    const MyEnums::WorkPosition& getWorkPosition()const{return this->_position;}
 
     void setWorkRole(const MyEnums::Department& newWorkRole){this->_workRole = newWorkRole;}
     void setEmploymentDate(const HTime& newEmployeementDate){this->_employmentDate = newEmployeementDate;}
     void setSalary(const float& newSalary){this->_salary = newSalary;}
     void setAcessLevel(const unsigned int& newAcessLevel){this->_acessLevel = newAcessLevel;}
+    void setWorkPosition(const MyEnums::WorkPosition& pos){this->_position = pos;}
 
     WeeklySchedule& getScheduleP(){return this->_schedule;}
 
@@ -47,10 +50,11 @@ public:
         return this->_phoneNumber == rhs.getPhone() && this->_name == rhs.getName();
     }
 
-    friend std::ostream& operator<<(std::ostream& os, Employee& e); //cout
+   friend std::ostream& operator<<(std::ostream& os, const Employee& e); //cout
 
     //functions
      void parse(std::string data);
      std::string to_string()const;
+     float convertAnnualSalary()const;
 };
 #endif

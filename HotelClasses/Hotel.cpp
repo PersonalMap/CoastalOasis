@@ -24,7 +24,7 @@ std::string Hotel::getUserKey(const User& user) {
 
 std::string Hotel::getEmployeeKey(const Employee& employee) {
     for (const auto& pair : _employees) {
-        if (pair.second == employee) {
+        if (*pair.second == employee) {
             return pair.first;
         }
     }
@@ -42,7 +42,7 @@ std::string Hotel::getUserKeyByPhone(const std::string& phoneNumber) {
 
 std::string Hotel::getEmployeeKeyByPhone(const std::string& phoneNumber) {
     for (const auto& pair : _employees) {
-        if (pair.second.getPhone() == phoneNumber) {
+        if (pair.second->getPhone() == phoneNumber) {
             return pair.first;
         }
     }
@@ -67,11 +67,11 @@ void Hotel::addUser(User& user)
     this->_users.insert({user.getPhone(), user});
     writeHotel();
 }
-void Hotel::addEmployee(Employee& employee)
-{
-    this->_employees.insert({employee.getPhone(), employee});
-    writeHotel();
+void Hotel::addEmployee(std::unique_ptr<Employee> employee) {
+    _employees.insert({employee->getPhone(), std::move(employee)});
 }
+
+
 
 void Hotel::addRoom(Room& room)
 {
@@ -80,7 +80,15 @@ void Hotel::addRoom(Room& room)
 }
 //delete
 void Hotel::removeUser(User& user){_users.erase(this->getUserKey(user));}
-void Hotel::removeEmployee(Employee& employee){_employees.erase(this->getEmployeeKey(employee));} //erase employee with our getKey function
+
+void Hotel::removeEmployee(Employee& employee) {
+    auto it = _employees.find(employee.getPhone());
+    if (it != _employees.end()) {
+        _employees.erase(it);
+        writeHotel();
+    }
+}
+
 void Hotel::removeRoom(Room& room){_rooms.erase(this->getRoomKey(room));}
 
 void Hotel::readInHotel()
@@ -91,6 +99,7 @@ void Hotel::readInHotel()
 }
 void Hotel::writeHotel()
 {
+
     _write.writeEmployees(_employees);
     _write.writeUsers(_users);
     _write.writeRooms(_rooms);
@@ -100,7 +109,7 @@ void Hotel::writeHotel()
 void Hotel::printEmployees()
 {
     for (const auto& [key, employee]: _employees) {
-        std::cout << employee;
+        std::cout << *employee;
     }
 }
 void Hotel::printUsers()

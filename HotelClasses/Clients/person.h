@@ -29,7 +29,6 @@ class Person
     void setAge(const unsigned int& age){this->_age = age;}
 
     ///operator functions
-    const std::string& debug();
 
 
 

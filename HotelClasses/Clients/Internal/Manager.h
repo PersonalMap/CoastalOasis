@@ -37,8 +37,8 @@ public:
         void addEmployee(const Employee& employee);
         void removeEmployee(const Employee& employee);
 
-        void parse(std::string data);
-        std::string to_string() const;
+        void parse(std::string data) override;
+        std::string to_string() const override;
 };
 
 

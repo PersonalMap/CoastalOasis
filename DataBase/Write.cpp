@@ -13,20 +13,17 @@ void Write::writeUsers(const std::map<std::string, User>& users) {
         file.close();
     }
 }
-void Write::writeEmployees(const std::map<std::string, Employee>& employees) {
-    std::ofstream file(EmployeeFilePath);
-    if (!file.is_open()) {
-        // handle the error here, e.g. throw an exception
-        std::cout << "Error opening file " << EmployeeFilePath << std::endl;
-    }
-    else {
-        for (const auto &[key, employee]: employees) {
-            std::string keyWord = getKeyWord(employee);
-            file << keyWord << ":" << employee.to_string() << std::endl;
+
+void Write::writeEmployees(const std::map<std::string, std::unique_ptr<Employee>>& employees) {
+    for (auto& [key, value] : employees) {
+        if (value) {
+            std::cout << key << ": " << value->to_string() << std::endl;
+        } else {
+            std::cout << key << ": nullptr" << std::endl;
         }
-        file.close();
     }
 }
+
 void Write::writeRooms(const std::map<unsigned int, Room>& rooms) {
     std::ofstream file(RoomFilePath);
     if (!file.is_open()) {
@@ -42,7 +39,7 @@ void Write::writeRooms(const std::map<unsigned int, Room>& rooms) {
     }
 }
 
-std::string Write::getKeyWord(const Employee& employee) {
+std::string Write::getKeyWord(const Employee& employee)const{
    switch(employee.getWorkPosition())
    {
        case MyEnums::WorkPosition::Contractor: return "Contractor";

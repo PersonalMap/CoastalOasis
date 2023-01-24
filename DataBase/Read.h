@@ -14,7 +14,7 @@ class Read {
     std::string RoomFilePath = "/Users/vango/CLionProjects/CoastalOasis/DataBase/Data/Rooms.txt";
 public:
     void readUsers(std::map<std::string, User>& users);
-    void readEmployees(std::map<std::string, Employee>& employees);
+    void readEmployees(std::map<std::string, std::unique_ptr<Employee>>& employees);
     void readRooms(std::map<unsigned int, Room>& rooms);
 
 };

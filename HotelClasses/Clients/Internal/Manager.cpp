@@ -48,6 +48,7 @@ void Manager::parse(std::string data)
         _employeeList.push_back(employee);
     }
 
+    //grabbing the rest of the parts to parse them with employee, using string stream
     std::stringstream ss;
     for (auto i = parts.begin() + parts.size()-7; i != parts.end(); ++i) {
         ss << *i;

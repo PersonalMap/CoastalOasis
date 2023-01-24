@@ -25,8 +25,9 @@ private:
      Read _read;
 
      std::map<std::string, User> _users; //phone
-     std::map<std::string, Employee> _employees; //phone
-     std::map<unsigned int, Room> _rooms; //room number
+     std::map<std::string, std::unique_ptr<Employee>> _employees;
+
+    std::map<unsigned int, Room> _rooms; //room number
 
 
 public:
@@ -40,8 +41,8 @@ public:
     //maps
     const User& getUser()const{return _users.at(this->_userKey);}
     const User& getUser(const std::string& userKey)const{return _users.at(userKey);}
-    const Employee& getEmployee()const{return _employees.at(this->_employeeKey);}
-    const Employee& getEmployee(const std::string& employeeKey)const{return _employees.at(employeeKey);}
+    const std::unique_ptr<Employee>& getEmployee()const{return _employees.at(this->_employeeKey);}
+    const std::unique_ptr<Employee>& getEmployee(const std::string& employeeKey)const{return _employees.at(employeeKey);}
     const Room& getRoom()const{return _rooms.at(this->_roomKey);}
     const Room& getRoom(unsigned int key)const{return this->_rooms.at(key);}
     //keys & loginType
@@ -49,7 +50,6 @@ public:
     const std::string& getCurrentUserKey()const{return this->_userKey;}
     const std::string& getCurrentEmployeeKey()const{return this->_employeeKey;}
     const unsigned int& getCurrentRoomKey()const{return this->_roomKey;}
-
 
     //keys
     void setActiveUserByObject(const User& user){this->_userKey = getUserKey(user);}
@@ -69,7 +69,7 @@ public:
     void writeHotel();
     //Add
     void addUser(User& user);
-    void addEmployee(Employee& employee);
+    void addEmployee(std::unique_ptr<Employee> employee);
     void addRoom(Room& room);
     //delete
     void removeUser(User& user);

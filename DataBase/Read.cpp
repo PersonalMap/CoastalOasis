@@ -17,24 +17,28 @@ void Read::readUsers(std::map<std::string, User>& users) {
     }
     file.close();
 }
-void Read::readEmployees(std::map<std::string, Employee>& employees) {
+void Read::readEmployees(std::map<std::string, std::unique_ptr<Employee>>& employees) {
     std::ifstream file(EmployeeFilePath);
     std::string line;
     while (std::getline(file, line)) {
-        Employee employee;
+        Employee* employee;
         if(line.substr(0,10) == "Contractor")
-            employee = Contractor();
+            employee = new Contractor();
         else if(line.substr(0,6) == "Hourly")
-            employee = Hourly();
+            employee = new Hourly();
         else if(line.substr(0,6) == "Intern")
-            employee = Intern();
+            employee = new Intern();
         else if(line.substr(0,7) == "Manager")
-            employee = Manager();
-        employee.parse(line);
-        employees.insert({employee.getPhone(), employee});
+            employee = new Manager();
+        employee->parse(line);
+
+        //add employee?
+        employees.emplace(employee->getPhone(), std::unique_ptr<Employee>(employee));
+
     }
     file.close();
 }
+
 
 
 

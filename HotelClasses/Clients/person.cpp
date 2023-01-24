@@ -9,9 +9,4 @@ Person::~Person(){}
 
 ///Functions
 
-const std::string& Person::debug(){
-    _debugStr = "";
-    _debugStr = "name: " + _name + "," + std::to_string(_age) +  " phone: " + _phoneNumber;
-    return _debugStr;
-}
 

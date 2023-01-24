@@ -43,7 +43,7 @@ void Intern::parse(std::string data)
 
 
 }
-std::string Intern::to_string()
+std::string Intern::to_string() const
 {
     std::string ref = "";
     for(unsigned int i=0;i<_references.size();i++)

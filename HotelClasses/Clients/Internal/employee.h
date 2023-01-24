@@ -24,11 +24,11 @@ protected:
 public:
 
     ///constructor
-    Employee();
+    Employee() = default;
     Employee(MyEnums::WorkPosition pos,MyEnums::Department workRole, const HTime& employeDate, float salary,
             unsigned int acessLevel,std::string name, std::string phone,unsigned int age);
 
-    ~Employee();
+    virtual ~Employee() {}
 
     ///getter & setters
     const MyEnums::Department& getWorkRole()const{return this->_workRole;}
@@ -53,8 +53,8 @@ public:
    friend std::ostream& operator<<(std::ostream& os, const Employee& e); //cout
 
     //functions
-     void parse(std::string data);
-     std::string to_string()const;
+     virtual void parse(std::string data);
+     virtual std::string to_string()const;
      float convertAnnualSalary()const;
 };
 #endif

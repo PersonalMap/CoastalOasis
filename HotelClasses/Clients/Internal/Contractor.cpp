@@ -21,12 +21,13 @@ Contractor::~Contractor()=default;
 void Contractor::parse(std::string data)
 {
     std::vector<std::string> parts = Utilities::split(data, ':'); //a function in utilities that splits data stringstd::vector<std::string> parts = Utilities::split(data, ':');
-    if (parts.size() != 8) {
-        std::cout << "wrong amount of words!" << parts.size() << " meanwhile 8 was expected";
+    if (parts.size() != 9) {
+        std::cout << "wrong amount of words!" << parts.size() << " meanwhile 9 was expected";
         throw std::runtime_error("");
     }
     _endDate = HTime(parts[1]);
 
+    //grabbing the rest of the parts to parse them with employee, using string stream
     std::stringstream ss;
     for (auto i = parts.begin() + 1; i != parts.end(); ++i) {
         ss << *i;
@@ -34,9 +35,11 @@ void Contractor::parse(std::string data)
             ss << ":";
         }
     }
+    std::cout << "Contractor Parsed correctly" << std::endl;
     Employee::parse(ss.str());
+
 }
-std::string Contractor::to_string()
+std::string Contractor::to_string() const
 {
     std::stringstream ss;
     ss << _endDate.getRawFullDateString() << ":" << Employee::to_string();

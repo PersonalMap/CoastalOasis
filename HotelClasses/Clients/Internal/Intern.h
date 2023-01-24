@@ -32,8 +32,8 @@ public:
     ///Functions
     void AddReference(const std::string r);
 
-    void parse(std::string data);
-    std::string to_string();
+    void parse(std::string data) override;
+    virtual std::string to_string() const override;
 
 };
 

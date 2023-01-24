@@ -26,8 +26,8 @@ public:
 
     //functions
 
-    void parse(std::string data);
-    std::string to_string();
+    void parse(std::string data) override;
+    std::string to_string()const override;
 
 
 };

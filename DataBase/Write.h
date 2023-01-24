@@ -25,10 +25,23 @@ private:
 
 public:
     void writeUsers(const std::map<std::string, User>& users);
-    void writeEmployees(const std::map<std::string, Employee>& employees);
     void writeRooms(const std::map<unsigned int, Room>& rooms);
 
-    std::string getKeyWord(const Employee& employee);
+    template <typename T>
+    std::string writeEmployee(const T& employee) {
+        std::string keyWord = getKeyWord(employee);
+        if (typeid(employee) == typeid(Contractor)) {
+            const Contractor& c = dynamic_cast<const Contractor&>(employee);
+            return keyWord + ":" + c.to_string();
+        } else {
+            return keyWord + ":" + employee.to_string();
+        }
+    }
+
+    void writeEmployees(const std::map<std::string, std::unique_ptr<Employee>>& employees);
+
+
+    std::string getKeyWord(const Employee& employee)const;
     std::string getRoomKeyWord(const Room& room);
 
 };

@@ -5,7 +5,7 @@
 
 #include "../Hotel.h"
 #include "Home.h"
-#include "Manager.h"
+#include "Hourly.h"
 
 
 Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
@@ -22,9 +22,11 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
 
     Hotel myHotel = Hotel();
 
-    HTime end = HTime("202303092100");
-    Manager viktor = Manager(MyEnums::Department::Security, end, 20000, 5, "Viktor", "0733589217", 18);
+    HTime start = HTime("202303092100");
+    Hourly viktor = Hourly(23000,MyEnums::Department::Security, start, 20000, 5, "Viktor", "0733589217", 18);
+    viktor.addHour();
 
+    //myHotel.addEmployee(viktor);
 
 
     ///Debug

@@ -1,58 +1,74 @@
 #include "Write.h"
 
-void Write::writeUsers(const std::map<std::string, User>& users) {
+void Write::writeUsers(const std::map<std::string, std::unique_ptr<User>>& users) {
+    std::cout << "Writing to file..." << std::endl;
     std::ofstream file(UserFilePath);
     if (!file.is_open()) {
         // handle the error here, e.g. throw an exception
         std::cout << "Error opening file " << UserFilePath << std::endl;;
-    }
-    else {
-        for (const auto& [key, user] : users) {
-            file << user.to_string() << std::endl;
+    } else {
+        for (auto &[key, value]: users) {
+            if (value) {
+                file << value->to_string() << std::endl;
+            } else {
+                std::cout << key << ": nullptr" << std::endl;
+            }
         }
         file.close();
     }
 }
 
 void Write::writeEmployees(const std::map<std::string, std::unique_ptr<Employee>>& employees) {
-    for (auto& [key, value] : employees) {
-        if (value) {
-            std::cout << key << ": " << value->to_string() << std::endl;
-        } else {
-            std::cout << key << ": nullptr" << std::endl;
-        }
-    }
-}
-
-void Write::writeRooms(const std::map<unsigned int, Room>& rooms) {
-    std::ofstream file(RoomFilePath);
+    std::cout << "Writing to file..." << std::endl;
+    std::ofstream file(EmployeeFilePath);
     if (!file.is_open()) {
         // handle the error here, e.g. throw an exception
-        std::cout << "Error opening file " << RoomFilePath << std::endl;;
-    }
-    else {
-        for (const auto &[key, room]: rooms) {
-            std::string keyWord = getRoomKeyWord(room);
-            file << keyWord << ":" << room.to_string() << std::endl;
+        std::cout << "Error opening file " << EmployeeFilePath << std::endl;;
+    } else {
+        for (auto &[key, value]: employees) {
+            std::string keyWord = getKeyWord(*value);
+            if (value) {
+                if (auto contractor = dynamic_cast<Contractor*>(value.get())) {
+                    file << keyWord << ":" << contractor->to_string() << std::endl;
+                } else if (auto intern = dynamic_cast<Intern*>(value.get())) {
+                    file << keyWord << ":" << intern->to_string() << std::endl;
+                } else if (auto hourly = dynamic_cast<Hourly*>(value.get())) {
+                    file << keyWord << ":" << hourly->to_string() << std::endl;
+                } else if (auto manager = dynamic_cast<Manager*>(value.get())) {
+                    file << keyWord << ":" << manager->to_string() << std::endl;
+                }
+
+            } else {
+                std::cout << key << ": nullptr" << std::endl;
+            }
         }
         file.close();
     }
 }
 
-std::string Write::getKeyWord(const Employee& employee)const{
-   switch(employee.getWorkPosition())
-   {
-       case MyEnums::WorkPosition::Contractor: return "Contractor";
-       break;
-       case MyEnums::WorkPosition::Hourly: return "Hourly";
-       break;
-       case MyEnums::WorkPosition::Intern: return "Intern";
-       break;
-       case MyEnums::WorkPosition::Manager: return "Manager";
-       break;
-       default: return "";
-   }
+void Write::writeRooms(const std::map<unsigned int, std::unique_ptr<Room>>& rooms) {
+    std::cout << "Writing to file..." << std::endl;
+    std::ofstream file(RoomFilePath);
+    if (!file.is_open()) {
+        // handle the error here, e.g. throw an exception
+        std::cout << "Error opening file " << RoomFilePath << std::endl;;
+    } else {
+        for (auto &[key, value]: rooms) {
+            std::string keyWord = getRoomKeyWord(*value);
+            if (value) {
+                file << keyWord << ":" << value->to_string() << std::endl;
+            } else {
+                std::cout << key << ": nullptr" << std::endl;
+            }
+        }
+        file.close();
+    }
 }
+
+std::string Write::getKeyWord(const Employee& employee) {
+    return Utilities::workPositionToString(employee.getWorkPosition());
+}
+
 
 std::string Write::getRoomKeyWord(const Room& room) {
     switch(room.getRoomType())

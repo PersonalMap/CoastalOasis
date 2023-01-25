@@ -28,22 +28,22 @@ void Employee::parse(std::string data)
 {
     std::vector<std::string> parts = Utilities::split(data, ':');
     try {
-        _workRole = static_cast<MyEnums::Department>(std::stoi(parts[1]));
-        _employmentDate = HTime(parts[2]);
-        _salary = std::stof(parts[3]);
-        _acessLevel = std::stoi(parts[4]);
-        _name = parts[5];
-        _phoneNumber = (parts[6]);
-        _age = std::stoi(parts[7]);
+        _workRole = static_cast<MyEnums::Department>(std::stoi(parts[0]));
+        _employmentDate = HTime(parts[1]);
+        _salary = std::stof(parts[2]);
+        _acessLevel = std::stoi(parts[3]);
+        _name = parts[4];
+        _phoneNumber = (parts[5]);
+        _age = std::stoi(parts[6]);
     } catch (const std::exception& e) {
         std::cout << "Error: Invalid data format: " << e.what() << std::endl;
     }
 }
-std::string Employee::to_string()const
-{
+std::string Employee::to_string() const {
     std::stringstream ss;
-    ss << static_cast<int>(_workRole) << ":" << _employmentDate.getRawFullDateString() <<
-    ":" << _salary << ":" << _acessLevel << ":" << _name << ":" << _phoneNumber << ":" << _age;
+    ss << _workRole << ":" <<
+    _employmentDate.getRawFullDateString() << ":" << _salary << ":" << _acessLevel <<
+    ":" << _name << ":"<< _phoneNumber << ":"<< _age;
     return ss.str();
+}
 
-};

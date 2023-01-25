@@ -4,8 +4,6 @@
 #include "Recipe.h"
 #include "Room.h"
 #include "HTime.h"
-#include "HotelEnums.h"
-#include "Utilities.h"
 class Booking {
 
 private:

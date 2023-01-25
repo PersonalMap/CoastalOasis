@@ -19,7 +19,7 @@ public:
 
     static std::vector<std::string> split(const std::string& data, char delimiter);
     static std::string join(std::vector<std::string> parts, char delimiter);
-
+    static std::string workPositionToString(MyEnums::WorkPosition position);
 
 
 };

@@ -70,3 +70,23 @@ std::string Utilities::join(std::vector<std::string> parts, char delimiter) {
     }
     return joined;
 }
+
+std::string Utilities::workPositionToString(MyEnums::WorkPosition position) {
+    switch (position) {
+        case MyEnums::WorkPosition::Manager:
+            return "Manager";
+            break;
+        case MyEnums::WorkPosition::Contractor:
+            return "Contractor";
+            break;
+        case MyEnums::WorkPosition::Intern:
+            return "Intern";
+            break;
+        case MyEnums::WorkPosition::Hourly:
+            return "Hourly";
+            break;
+        default:
+            return "Invalid";
+            break;
+    }
+};

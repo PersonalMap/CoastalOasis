@@ -15,7 +15,7 @@ Hotel::~Hotel()
 /// KEY RELATED
 std::string Hotel::getUserKey(const User& user) {
     for (const auto& pair : _users) {
-        if (pair.second == user) {
+        if (*pair.second == user) {
             return pair.first;
         }
     }
@@ -33,7 +33,7 @@ std::string Hotel::getEmployeeKey(const Employee& employee) {
 
 std::string Hotel::getUserKeyByPhone(const std::string& phoneNumber) {
     for (const auto& pair : _users) {
-        if (pair.second.getPhone() == phoneNumber) {
+        if (pair.second->getPhone() == phoneNumber) {
             return pair.first;
         }
     }
@@ -52,7 +52,7 @@ std::string Hotel::getEmployeeKeyByPhone(const std::string& phoneNumber) {
 unsigned int Hotel::getRoomKey(const Room& room)
 {
     for (const auto& pair : _rooms) {
-        if (pair.second == room) {
+        if (*pair.second == room) {
             return pair.first;
         }
     }
@@ -62,24 +62,31 @@ unsigned int Hotel::getRoomKey(const Room& room)
 
 /// ADDING & DELETING from MAP
 
-void Hotel::addUser(User& user)
-{
-    this->_users.insert({user.getPhone(), user});
+void Hotel::addRoom(std::unique_ptr<Room> room){
+    auto roomNmbr = room->getRoomNumber();
+    _rooms.emplace(roomNmbr, std::move(room));
     writeHotel();
 }
+
 void Hotel::addEmployee(std::unique_ptr<Employee> employee) {
-    _employees.insert({employee->getPhone(), std::move(employee)});
+    auto phone = employee->getPhone();
+    _employees.emplace(phone, std::move(employee));
+    writeHotel();
 }
 
 
-
-void Hotel::addRoom(Room& room)
-{
-    this->_rooms.insert({room.getRoomNumber(), room});
+void Hotel::addUser(std::unique_ptr<User> user) {
+    _users.insert({user->getPhone(), std::move(user)});
     writeHotel();
 }
 //delete
-void Hotel::removeUser(User& user){_users.erase(this->getUserKey(user));}
+void Hotel::removeUser(User &user){
+    auto it = _users.find(user.getPhone());
+    if (it != _users.end()) {
+        _users.erase(it);
+        writeHotel();
+    }
+}
 
 void Hotel::removeEmployee(Employee& employee) {
     auto it = _employees.find(employee.getPhone());
@@ -89,7 +96,13 @@ void Hotel::removeEmployee(Employee& employee) {
     }
 }
 
-void Hotel::removeRoom(Room& room){_rooms.erase(this->getRoomKey(room));}
+void Hotel::removeRoom(Room& room) {
+    auto it = _rooms.find(room.getRoomNumber());
+    if (it != _rooms.end()) {
+        _rooms.erase(it);
+        writeHotel();
+    }
+}
 
 void Hotel::readInHotel()
 {

@@ -65,26 +65,22 @@ unsigned int Hotel::getRoomKey(const Room& room)
 void Hotel::addRoom(std::unique_ptr<Room> room){
     auto roomNmbr = room->getRoomNumber();
     _rooms.emplace(roomNmbr, std::move(room));
-    writeHotel();
 }
 
 void Hotel::addEmployee(std::unique_ptr<Employee> employee) {
     auto phone = employee->getPhone();
     _employees.emplace(phone, std::move(employee));
-    writeHotel();
 }
 
 
 void Hotel::addUser(std::unique_ptr<User> user) {
     _users.insert({user->getPhone(), std::move(user)});
-    writeHotel();
 }
 //delete
 void Hotel::removeUser(User &user){
     auto it = _users.find(user.getPhone());
     if (it != _users.end()) {
         _users.erase(it);
-        writeHotel();
     }
 }
 
@@ -92,7 +88,6 @@ void Hotel::removeEmployee(Employee& employee) {
     auto it = _employees.find(employee.getPhone());
     if (it != _employees.end()) {
         _employees.erase(it);
-        writeHotel();
     }
 }
 
@@ -100,7 +95,6 @@ void Hotel::removeRoom(Room& room) {
     auto it = _rooms.find(room.getRoomNumber());
     if (it != _rooms.end()) {
         _rooms.erase(it);
-        writeHotel();
     }
 }
 

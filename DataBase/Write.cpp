@@ -26,16 +26,15 @@ void Write::writeEmployees(const std::map<std::string, std::unique_ptr<Employee>
         std::cout << "Error opening file " << EmployeeFilePath << std::endl;;
     } else {
         for (auto &[key, value]: employees) {
-            std::string keyWord = getKeyWord(*value);
             if (value) {
                 if (auto contractor = dynamic_cast<Contractor*>(value.get())) {
-                    file << keyWord << ":" << contractor->to_string() << std::endl;
+                    file << "Contractor" << ":" << contractor->to_string() << std::endl;
                 } else if (auto intern = dynamic_cast<Intern*>(value.get())) {
-                    file << keyWord << ":" << intern->to_string() << std::endl;
+                    file << "Intern" << ":" << intern->to_string() << std::endl;
                 } else if (auto hourly = dynamic_cast<Hourly*>(value.get())) {
-                    file << keyWord << ":" << hourly->to_string() << std::endl;
+                    file << "Hourly" << ":" << hourly->to_string() << std::endl;
                 } else if (auto manager = dynamic_cast<Manager*>(value.get())) {
-                    file << keyWord << ":" << manager->to_string() << std::endl;
+                    file << "Manager" << ":" << manager->to_string() << std::endl;
                 }
 
             } else {

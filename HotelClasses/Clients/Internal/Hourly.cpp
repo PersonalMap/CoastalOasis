@@ -26,8 +26,8 @@ unsigned int Hourly::calculateSalary() const
 
 void Hourly::parse(const std::string& data) {
     std::vector<std::string> parts = Utilities::split(data, ':');
-    if (parts.size() != 9) {
-        std::cout << "wrong amount of words!" << parts.size() << " meanwhile 9 was expected";
+    if (parts.size() != 10){
+        std::cout << "wrong amount of words!" << parts.size() << " meanwhile 10 was expected";
         throw std::runtime_error("");
     }
     _hourSalary = std::stoi(parts[1]);
@@ -44,6 +44,6 @@ void Hourly::parse(const std::string& data) {
 
 std::string Hourly::to_string() const {
     std::stringstream ss;
-    ss << "Hourly:" << _hourSalary << ":" << _hoursWorked << ":" << Employee::to_string();
+    ss << _hourSalary << ":" << _hoursWorked << ":" << Employee::to_string();
     return ss.str();
 }

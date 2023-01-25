@@ -35,8 +35,6 @@ void Contractor::parse(std::string data)
             ss << ":";
         }
     }
-
-    std::cout << "Contractor Parsed correctly" << std::endl;
     Employee::parse(ss.str());
 }
 

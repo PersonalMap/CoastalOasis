@@ -67,3 +67,10 @@
 680	846	1674605741703314885	CoastalOasis	730e48c3c422436
 6	682	1674605811722215736	CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/employee.cpp.o	54f3b9a21548ad2a
 682	843	1674605811885325880	CoastalOasis	730e48c3c422436
+3	715	1674644580600084718	CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Contractor.cpp.o	47ef1f416d9f0b37
+4	716	1674644580600012093	CMakeFiles/CoastalOasis.dir/HotelClasses/Clients/Internal/Hourly.cpp.o	c7e35302037830ad
+716	904	1674644580793330857	CoastalOasis	730e48c3c422436
+3	801	1674645005896238421	CMakeFiles/CoastalOasis.dir/HotelClasses/Hotel.cpp.o	b179c33856c4a224
+801	969	1674645006067201501	CoastalOasis	730e48c3c422436
+4	743	1674645645697646382	CMakeFiles/CoastalOasis.dir/DataBase/Write.cpp.o	970d159ad3ba15bc
+743	919	1674645645875978718	CoastalOasis	730e48c3c422436

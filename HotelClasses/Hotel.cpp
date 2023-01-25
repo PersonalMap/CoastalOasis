@@ -9,6 +9,7 @@ Hotel::Hotel(): _roomKey(), _userKey(), _employeeKey(), _users(), _employees(), 
 }
 Hotel::~Hotel()
 {
+    std::cout << "saving.. ~Hotel"<< std::endl;
     writeHotel();
 }
 

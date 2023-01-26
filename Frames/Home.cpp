@@ -26,6 +26,7 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
 
     ///Debug
     myHotel.printEmployees();
+    myHotel.printUsers();
 
 }
 

@@ -131,13 +131,13 @@ void Hotel::printEmployees()
 void Hotel::printUsers()
 {
     for (const auto& [key, user]: _users) {
-        std::cout << user;
+        std::cout << *user;
     }
 }
 void Hotel::printRooms()
 {
     for (const auto& [key, room]: _rooms) {
-        std::cout << room;
+        std::cout << *room;
     }
 }
 

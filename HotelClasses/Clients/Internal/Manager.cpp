@@ -3,20 +3,20 @@
 ///*Constructors*/
 
 //default
-Manager::Manager(){};
+Manager::Manager()= default;
 Manager::Manager(MyEnums::Department workRole,const HTime& employeeDate, float salary,
                  unsigned int accessLevel,std::string name, std::string phone, unsigned int age)
                        :Employee(MyEnums::WorkPosition::Manager, workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age){}
 
 //employee list
-Manager::Manager(std::vector<Employee> employeeList, MyEnums::Department workRole,
+Manager::Manager(std::map<std::string, std::shared_ptr<Employee>> employeeList, MyEnums::Department workRole,
                  const HTime& employeeDate, float salary, unsigned int accessLevel,
                  std::string name, std::string phone, unsigned int age)
                      :Employee(MyEnums::WorkPosition::Manager,workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
                      _employeeList(std::move(employeeList)){}
 
 //employee list + finished schedule
-Manager::Manager( const WeeklySchedule& _schedule,std::vector<Employee> employeeList,
+Manager::Manager( const WeeklySchedule& _schedule,std::map<std::string, std::shared_ptr<Employee>> employeeList,
                   MyEnums::Department workRole, const HTime& employeeDate, float salary,
                   unsigned int accessLevel,std::string name, std::string phone, unsigned int age)
                   :Employee(MyEnums::WorkPosition::Manager, workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
@@ -30,22 +30,32 @@ Manager::Manager( const WeeklySchedule& _schedule,std::vector<Employee> employee
 
 ///functions
 
-void Manager::addEmployee(const Employee& employee){_employeeList.push_back(employee);}
-void Manager::removeEmployee(const Employee& employee)
-{
-    auto it = std::find(_employeeList.begin(), _employeeList.end(), employee);
-
+void Manager::addEmployee(const std::string& key, std::shared_ptr<Employee> employee) {
+    _employeeList.insert(std::make_pair(key,std::shared_ptr<Employee>(employee.get())));
 }
 
+void Manager::removeEmployee(const std::string& key) {
+    _employeeList.erase(key);
+}
+
+
+void Manager::AddEmpFromKey(std::map<std::string, std::shared_ptr<Employee>>& employees) {
+    _employeeList.clear();
+    for(const auto& string : _employeeKeys) {
+        try {
+            _employeeList.insert(std::make_pair(string, std::weak_ptr<Employee>(employees.at(string))));
+        } catch (std::out_of_range& e) {
+            std::cerr << "Error: employee with key " << string << " not found in employees map" << std::endl;
+        }
+    }
+}
 
 void Manager::parse(std::string data)
 {
     std::vector<std::string> parts = Utilities::split(data, ':');
-    _employeeList.clear();
+    _employeeKeys.clear();
     for(unsigned int i = 1; i < parts.size()-7; i++) {
-        Employee employee;
-        employee.parse(parts[i]);
-        _employeeList.push_back(employee);
+       _employeeKeys.push_back(parts[i]);
     }
 
     //grabbing the rest of the parts to parse them with employee, using string stream
@@ -58,11 +68,26 @@ void Manager::parse(std::string data)
     }
     Employee::parse(ss.str());
 }
-std::string Manager::to_string()const
-{
-    std::string employees = "";
-    for(unsigned int i = 0; i < _employeeList.size(); i++) {
-        employees += _employeeList[i].to_string() + ":";
+std::string Manager::to_string() const {
+    std::string employees;
+    for (const auto& [key, value] : _employeeList) {
+        employees += key + ":";
     }
-    return "Manager:" + employees + Employee::to_string();
+    return employees + Employee::to_string();
+}
+
+
+///operator
+
+std::ostream& operator<<(std::ostream& os, const Manager& e) {
+
+    std::string employeeNames;
+    for (const auto& [key, employee] : e._employeeList) {
+        employeeNames += employee->getName() + ", ";
+    }
+
+    return os << e._name << ", " << e._age << "(" << MyEnums::departmentMap[e._workRole] << ")\n"
+              << "AnnualSalary: " << e.convertAnnualSalary() << "$\n"
+              << "Phone: " << e._phoneNumber << "\t" << "$\n"
+              << "Boss for :" << employeeNames <<std::endl;
 }

@@ -54,6 +54,8 @@ public:
    friend std::ostream& operator<<(std::ostream& os, const Employee& e); //cout
 
     //functions
+
+     virtual void AddEmpFromKey(std::map<std::string, std::shared_ptr<Employee>>& employees) {}
      virtual void parse(std::string data);
      virtual std::string to_string()const;
      float convertAnnualSalary()const;

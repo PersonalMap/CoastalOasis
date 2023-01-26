@@ -17,15 +17,14 @@
 
 class Write {
 private:
-
     std::string EmployeeFilePath = "/Users/vango/CLionProjects/CoastalOasis/DataBase/Data/Employees.txt";
     std::string UserFilePath = "/Users/vango/CLionProjects/CoastalOasis/DataBase/Data/Users.txt";
     std::string RoomFilePath = "/Users/vango/CLionProjects/CoastalOasis/DataBase/Data/Rooms.txt";
 
 public:
-    void writeUsers(const std::map<std::string, std::unique_ptr<User>>& users);
-    void writeRooms(const std::map<unsigned int, std::unique_ptr<Room>>& rooms);
-    void writeEmployees(const std::map<std::string, std::unique_ptr<Employee>>& employees);
+    void writeUsers(const std::map<std::string, std::shared_ptr<User>>& users);
+    void writeRooms(const std::map<unsigned int, std::shared_ptr<Room>>& rooms);
+    void writeEmployees(const std::map<std::string, std::shared_ptr<Employee>>& employees);
 
     std::string getKeyWord(const Employee& employee);
     std::string getRoomKeyWord(const Room& room);

@@ -33,7 +33,7 @@ void Intern::parse(std::string data)
         _references.push_back(parts[i]);
     }
     std::stringstream ss;
-    for (auto i = parts.begin() + parts.size()-7; i != parts.end(); ++i) {
+    for (auto i = parts.begin() + parts.size()-7; i != parts.end(); ++i) { // we need the last 9 parts?
         ss << *i;
         if (i + 1 != parts.end()) {
             ss << ":";
@@ -50,5 +50,5 @@ std::string Intern::to_string() const
     {
         ref += _references[i] + ":";
     }
-    return "Intern:" + ref + Employee::to_string();
+    return ref + Employee::to_string();
 }

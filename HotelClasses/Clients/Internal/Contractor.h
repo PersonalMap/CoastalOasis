@@ -24,6 +24,7 @@ public:
     const HTime& getEndDate()const{return this->_endDate;};
     void setEndDate(const HTime& endDate){ this->_endDate = endDate;};
 
+
     //functions
 
     void parse(std::string data) override;

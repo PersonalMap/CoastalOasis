@@ -1,6 +1,6 @@
 #include "Write.h"
 
-void Write::writeUsers(const std::map<std::string, std::unique_ptr<User>>& users) {
+void Write::writeUsers(const std::map<std::string, std::shared_ptr<User>>& users) {
     std::ofstream file(UserFilePath);
     if (!file.is_open()) {
         // handle the error here, e.g. throw an exception
@@ -17,7 +17,7 @@ void Write::writeUsers(const std::map<std::string, std::unique_ptr<User>>& users
     }
 }
 
-void Write::writeEmployees(const std::map<std::string, std::unique_ptr<Employee>>& employees) {
+void Write::writeEmployees(const std::map<std::string, std::shared_ptr<Employee>>& employees) {
     std::ofstream file(EmployeeFilePath);
     if (!file.is_open()) {
         // handle the error here, e.g. throw an exception
@@ -43,7 +43,7 @@ void Write::writeEmployees(const std::map<std::string, std::unique_ptr<Employee>
     }
 }
 
-void Write::writeRooms(const std::map<unsigned int, std::unique_ptr<Room>>& rooms) {
+void Write::writeRooms(const std::map<unsigned int, std::shared_ptr<Room>>& rooms) {
     std::ofstream file(RoomFilePath);
     if (!file.is_open()) {
         // handle the error here, e.g. throw an exception

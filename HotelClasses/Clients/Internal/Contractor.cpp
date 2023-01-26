@@ -45,3 +45,5 @@ std::string Contractor::to_string() const
     ss << _endDate.getRawFullDateString() << ":" << Employee::to_string();
     return ss.str();
 }
+
+

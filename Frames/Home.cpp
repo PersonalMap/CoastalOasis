@@ -22,9 +22,6 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
 
     Hotel myHotel = Hotel();
 
-    HTime start = HTime("202303092100");
-    auto viktor = std::make_unique<Contractor>(start,MyEnums::Department::Security, start, 20000, 5, "Viktor", "0733589217", 18);
-   // myHotel.addEmployee(std::move(viktor));
 
 
     ///Debug

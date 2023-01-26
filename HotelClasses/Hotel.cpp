@@ -63,19 +63,18 @@ unsigned int Hotel::getRoomKey(const Room& room)
 
 /// ADDING & DELETING from MAP
 
-void Hotel::addRoom(std::unique_ptr<Room> room){
-    auto roomNmbr = room->getRoomNumber();
-    _rooms.emplace(roomNmbr, std::move(room));
+void Hotel::addRoom(Room& room){
+    _rooms.emplace(room.getRoomNumber(), std::make_shared<Room>(room));
 }
 
-void Hotel::addEmployee(std::unique_ptr<Employee> employee) {
-    auto phone = employee->getPhone();
-    _employees.emplace(phone, std::move(employee));
+void Hotel::addEmployee(Employee& employee) {
+    _employees.emplace(employee.getPhone(), std::make_shared<Employee>(employee));
 }
 
 
-void Hotel::addUser(std::unique_ptr<User> user) {
-    _users.insert({user->getPhone(), std::move(user)});
+
+void Hotel::addUser(User& user) {
+    _users.emplace(user.getPhone(), std::make_shared<User>(user));
 }
 //delete
 void Hotel::removeUser(User &user){
@@ -116,9 +115,18 @@ void Hotel::writeHotel()
 
 void Hotel::printEmployees()
 {
-    for (const auto& [key, employee]: _employees) {
-        std::cout << *employee;
+    for (const auto& [key, employee]: _employees)
+    {
+        if (const auto derived = std::dynamic_pointer_cast<Manager>(employee))
+        {
+            std::cout << *derived << std::endl;
+        }
+        else
+        {
+            std::cout << *employee << std::endl;
+        }
     }
+
 }
 void Hotel::printUsers()
 {
@@ -132,3 +140,6 @@ void Hotel::printRooms()
         std::cout << room;
     }
 }
+
+
+

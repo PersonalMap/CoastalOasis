@@ -7,7 +7,8 @@
 class Manager: public Employee{
 
 private:
-    std::vector<Employee> _employeeList;
+    std::map<std::string, std::shared_ptr<Employee>> _employeeList;
+    std::vector<std::string> _employeeKeys;
 public:
 
     ///*Constructors*/
@@ -17,25 +18,30 @@ public:
             unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
 
             //employee list ,  constructor
-    Manager(std::vector<Employee> employeeList, MyEnums::Department workRole,
+    Manager(const std::map<std::string, std::shared_ptr<Employee>> employeeList, MyEnums::Department workRole,
             const HTime& employeeDate, float salary, unsigned int accessLevel,
             std::string name, std::string phone, unsigned int age);
 
             //employee list + finished schedule , constructor
-    Manager(  const WeeklySchedule& _schedule,std::vector<Employee> employeeList,
+    Manager(  const WeeklySchedule& _schedule,std::map<std::string, std::shared_ptr<Employee>> employeeList,
              MyEnums::Department workRole, const HTime& employeeDate, float salary,
              unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
 
     ~Manager();
 
         ///* GETTERS & SETTERS*/
-        const std::vector<Employee>& getEmployeeList()const {return this->_employeeList;}
-        std::vector<Employee>& getEmployeeListP(){return this->_employeeList;}
+
+        const std::map<std::string, std::shared_ptr<Employee>>& getEmployeeMap() const{return this->_employeeList;}
+        std::map<std::string, std::shared_ptr<Employee>>& getEmployeeListP(){return this->_employeeList;}
         int getNumberOfEmployees()const{return (int)this->_employeeList.size();}
 
+        ///operator
+        friend std::ostream& operator<<(std::ostream& os, const Manager& e);
+
         ///* FUNCTIONS */
-        void addEmployee(const Employee& employee);
-        void removeEmployee(const Employee& employee);
+        void addEmployee(const std::string& key, std::shared_ptr<Employee> employee);
+        void removeEmployee(const std::string& key);
+        void AddEmpFromKey(std::map<std::string, std::shared_ptr<Employee>>& employees)override;
 
         void parse(std::string data) override;
         std::string to_string() const override;

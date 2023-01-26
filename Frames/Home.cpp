@@ -22,12 +22,10 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame")
 
     Hotel myHotel = Hotel();
 
-
-
-    ///Debug
+    /*Debug
     myHotel.printEmployees();
     myHotel.printUsers();
-
+    */
 }
 
 Home::~Home()

@@ -1,5 +1,6 @@
 #include <wx/panel.h>
 #include <wx/splitter.h>
+#include <wx/statline.h>
 #include <iostream>
 
 #include "../Hotel.h"
@@ -41,12 +42,14 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame", wxDefaultPosition, wxDefaul
     wxBoxSizer *header_sizer = new wxBoxSizer(wxHORIZONTAL);
     wxStaticText *Header_label = new wxStaticText(header_Panel, wxID_ANY, "CoastalOasis");
     wxStaticText *Contact_label = new wxStaticText(header_Panel, wxID_ANY, "Contact us");
-    wxStaticText *Login_label = new wxStaticText(header_Panel, wxID_ANY, "Login");
-
+    wxStaticText *Login_label = new wxStaticText(header_Panel, wxID_ANY, "Logout");
     wxFont font = Header_label->GetFont();
     font.SetPointSize(20);
+    wxFont font2 = font;
+    font2.SetPointSize(18);
+    Contact_label->SetFont(font2);
+    Login_label->SetFont(font2);
     Header_label->SetFont(font);
-
     header_sizer->AddStretchSpacer();
     header_sizer->Add(Header_label, 0, wxALIGN_CENTER);
     header_sizer->AddStretchSpacer();
@@ -56,9 +59,33 @@ Home::Home() : wxFrame(NULL, wxID_ANY, "Home Frame", wxDefaultPosition, wxDefaul
     header_sizer->AddStretchSpacer();
     header_Panel->SetSizerAndFit(header_sizer);
 
-
-
-
+    ///Left side of splitter
+    wxBoxSizer *leftsizer = new wxBoxSizer(wxVERTICAL);
+    wxStaticText *settings_label = new wxStaticText(left, wxID_ANY, "Settings");
+    wxFont font1 = settings_label->GetFont();
+    font1.SetPointSize(18);
+    font1.SetWeight(wxFONTWEIGHT_MEDIUM);
+    settings_label->SetFont(font1);
+    wxStaticText *Name_label = new wxStaticText(left, wxID_ANY, "Viktor");
+    Name_label->SetFont(font1);
+    wxStaticText *Room_label = new wxStaticText(left, wxID_ANY, "Room Info");
+    Room_label->SetFont(font1);
+    wxStaticText *bookDining_label = new wxStaticText(left, wxID_ANY, "Book Dining");
+    bookDining_label->SetFont(font1);
+    wxStaticText *bookActivity_label = new wxStaticText(left, wxID_ANY, "Our Activities");
+    bookActivity_label->SetFont(font1);
+    wxStaticText *reservation_label = new wxStaticText(left, wxID_ANY, "Reservations");
+    reservation_label->SetFont(font1);
+    leftsizer->AddStretchSpacer(1);
+    leftsizer->Add(Name_label, 1, wxALIGN_LEFT | wxALL, 15);
+    leftsizer->AddStretchSpacer(3);
+    leftsizer->Add(Room_label, 2, wxALIGN_LEFT | wxLEFT, 15);
+    leftsizer->Add(bookDining_label, 2, wxALIGN_LEFT | wxLEFT, 15);
+    leftsizer->Add(bookActivity_label, 2, wxALIGN_LEFT| wxLEFT, 15);
+    leftsizer->Add(reservation_label, 2, wxALIGN_LEFT| wxLEFT, 15);
+    leftsizer->Add(settings_label, 2, wxALIGN_LEFT| wxLEFT, 15);
+    leftsizer->AddStretchSpacer(4);
+    left->SetSizerAndFit(leftsizer);
 
 
 

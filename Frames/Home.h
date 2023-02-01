@@ -4,15 +4,18 @@
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
 #endif
+#include "../Hotel.h"
+#include "ClientDashBoard.h"
 
 #include <string>
 
 class Home: public wxFrame {
 
 private:
-    std::string _debugString;
+    Hotel* myHotel;
+    ClientDashBoard* _clientDash;
 public:
-    Home();
+    Home(Hotel* hotel);
    ~Home();
 };
 

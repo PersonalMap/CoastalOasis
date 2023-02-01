@@ -11,6 +11,9 @@
 
 class MyApp : public wxApp
 {
+private:
+    Hotel myHotel;
+
 public:
     virtual bool OnInit();
 };
@@ -25,7 +28,7 @@ wxIMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit()
 {
-    Home *frame = new Home();
+    Home *frame = new Home(&myHotel);
 
     frame->Show(true);
     return true;

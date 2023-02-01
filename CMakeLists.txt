@@ -1,3 +1,4 @@
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -v")
 cmake_minimum_required(VERSION 3.24)
 set(CMAKE_CXX_STANDARD 17)
 project(CoastalOasis)
@@ -44,7 +45,7 @@ file(GLOB_RECURSE SOURCE_FILES
 list(APPEND SOURCE_FILES "${PROJECT_SOURCE_DIR}/main.cpp")
 
 # Create the executable
-add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} Frames/Home.cpp)
 
 # Link the executable with the wxWidgets libraries
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})

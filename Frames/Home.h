@@ -1,22 +1,21 @@
-#ifndef COASTALOASIS_HOME_H
-#define COASTALOASIS_HOME_H
+#ifndef COASTALOASIS_HOME__H
+#define COASTALOASIS_HOME__H
 #include <wx/wxprec.h>
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
 #endif
 #include "../Hotel.h"
-#include "ClientDashBoard.h"
-
 #include <string>
+#include "FrameSwitcher.h"
 
-class Home: public wxFrame {
-
+class Home: virtual public wxFrame {
+public:
+    Home();
+    Home(Hotel* hotel,FrameSwitcher* frameSwitcher);
+    ~Home();
 private:
     Hotel* myHotel;
-    ClientDashBoard* _clientDash;
-public:
-    Home(Hotel* hotel);
-   ~Home();
+    FrameSwitcher* myFrameSwitcher;
 };
 
-#endif //COASTALOASIS_HOME_H
+#endif

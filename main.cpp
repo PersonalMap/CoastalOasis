@@ -13,11 +13,11 @@ class MyApp : public wxApp
 {
 private:
     Hotel myHotel;
+    FrameSwitcher* myFrameSwitcher;
 
 public:
     virtual bool OnInit();
 };
-
 
 enum
 {
@@ -28,9 +28,9 @@ wxIMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit()
 {
-    Home *frame = new Home(&myHotel);
+    myFrameSwitcher = new FrameSwitcher(&myHotel);
+    myFrameSwitcher->SwitchToFrame(FrameType::HOME);
 
-    frame->Show(true);
     return true;
 }
 

@@ -1,17 +1,13 @@
 #include <wx/panel.h>
-#include <wx/splitter.h>
-#include <wx/statline.h>
 #include <iostream>
-
 #include "../Hotel.h"
 #include "Home.h"
-#include "ClientDashBoard.h"
-#include "Hourly.h"
 
-
-Home::Home(Hotel* hotel) : wxFrame(NULL, wxID_ANY, "Home Frame", wxDefaultPosition, wxDefaultSize)
+Home::Home() = default;
+Home::Home(Hotel* hotel, FrameSwitcher* frameSwitcher) : wxFrame(NULL, wxID_ANY, "Home Frame", wxDefaultPosition, wxDefaultSize)
 {
     myHotel = hotel;
+    myFrameSwitcher = frameSwitcher;
     this->SetSize(800,600);
     this->SetTitle("My Frame");
     this->Centre();
@@ -58,6 +54,13 @@ Home::Home(Hotel* hotel) : wxFrame(NULL, wxID_ANY, "Home Frame", wxDefaultPositi
     s1->Add(footer_Panel, 1, wxEXPAND);
 
     right->SetSizerAndFit(s1);
+
+    ///EVENT HANDLERS
+    Login_label->Bind(wxEVT_LEFT_UP, [this](wxMouseEvent& event)
+    {
+        myFrameSwitcher->SwitchToFrame(FrameType::LOGIN);
+    });
+
 
 }
 

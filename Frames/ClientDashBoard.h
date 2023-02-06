@@ -2,15 +2,19 @@
 #define COASTALOASIS_CLIENTDASHBOARD_H
 #include <wx/wx.h>
 #include "../Hotel.h"
+#include "FrameSwitcher.h"
+
+class Home;
 
 class ClientDashBoard : public wxFrame
 {
 public:
     ClientDashBoard();
-    ClientDashBoard(Hotel *hotel);
+    ClientDashBoard(Hotel *hotel, FrameSwitcher* frameSwitcher);
 
 private:
     Hotel *myHotel;
+    FrameSwitcher* myFrameSwitcher;
 };
 
 

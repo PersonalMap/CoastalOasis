@@ -3,7 +3,7 @@
 #include "wx/splitter.h"
 
 ClientDashBoard::ClientDashBoard():wxFrame(NULL, wxID_ANY, "My Frame") {};
-ClientDashBoard::ClientDashBoard(Hotel *hotel):wxFrame(NULL, wxID_ANY, "My Frame") {
+ClientDashBoard::ClientDashBoard(Hotel *hotel, FrameSwitcher* frameSwitcher):wxFrame(NULL, wxID_ANY, "My Frame") {
 this->myHotel = hotel;
 this->SetSize(800,600);
 this->SetTitle("My Frame");

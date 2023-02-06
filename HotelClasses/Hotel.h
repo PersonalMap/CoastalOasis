@@ -12,6 +12,7 @@
 #include "employee.h"
 #include "Room.h"
 #include "Write.h"
+
 class Hotel {
 
 private:

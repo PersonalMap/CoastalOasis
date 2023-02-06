@@ -14,11 +14,11 @@ public:
     ///Constructor
     Hourly();
     //default
-    Hourly(MyEnums::Department workRole, const HTime& employeDate, float salary,
+    Hourly(std::string email, std::string password,MyEnums::Department workRole, const HTime& employeDate, float salary,
     unsigned int acessLevel,std::string name, std::string phone, unsigned int age);
 
     //init with hour salary
-    Hourly(unsigned int hourSalary, MyEnums::Department workRole,const HTime& employeDate, float salary,
+    Hourly(unsigned int hourSalary, std::string email, std::string password,MyEnums::Department workRole,const HTime& employeDate, float salary,
                    unsigned int acessLevel,std::string name, std::string phone, unsigned int age);
 
     ~Hourly();

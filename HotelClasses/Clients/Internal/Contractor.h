@@ -12,11 +12,11 @@ public:
     ///Constructor
     //default
     Contractor();
-    Contractor(MyEnums::Department workRole,const HTime& employeDate, float salary,
+    Contractor(std::string email, std::string password,MyEnums::Department workRole,const HTime& employeDate, float salary,
                    unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
 
     //init with hour salary
-    Contractor(const HTime&, MyEnums::Department workRole,const HTime& employeeDate, float salary,
+    Contractor(const HTime&,std::string email, std::string password, MyEnums::Department workRole,const HTime& employeeDate, float salary,
                unsigned int accessLevel, std::string name, std::string phone, unsigned int age);
     ~Contractor();
 

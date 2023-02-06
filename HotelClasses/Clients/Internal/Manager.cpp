@@ -4,22 +4,22 @@
 
 //default
 Manager::Manager()= default;
-Manager::Manager(MyEnums::Department workRole,const HTime& employeeDate, float salary,
+Manager::Manager(std::string email, std::string password,MyEnums::Department workRole,const HTime& employeeDate, float salary,
                  unsigned int accessLevel,std::string name, std::string phone, unsigned int age)
-                       :Employee(MyEnums::WorkPosition::Manager, workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age){}
+                       :Employee(std::move(email), std::move(password), MyEnums::WorkPosition::Manager, workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age){}
 
 //employee list
-Manager::Manager(std::map<std::string, std::shared_ptr<Employee>> employeeList, MyEnums::Department workRole,
+Manager::Manager(std::map<std::string,std::shared_ptr<Employee>> employeeList,std::string email, std::string password,  MyEnums::Department workRole,
                  const HTime& employeeDate, float salary, unsigned int accessLevel,
                  std::string name, std::string phone, unsigned int age)
-                     :Employee(MyEnums::WorkPosition::Manager,workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
+                     :Employee(std::move(email), std::move(password),MyEnums::WorkPosition::Manager,workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
                      _employeeList(std::move(employeeList)){}
 
 //employee list + finished schedule
 Manager::Manager( const WeeklySchedule& _schedule,std::map<std::string, std::shared_ptr<Employee>> employeeList,
-                  MyEnums::Department workRole, const HTime& employeeDate, float salary,
+                  std::string email, std::string password,MyEnums::Department workRole, const HTime& employeeDate, float salary,
                   unsigned int accessLevel,std::string name, std::string phone, unsigned int age)
-                  :Employee(MyEnums::WorkPosition::Manager, workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
+                  :Employee(std::move(email), std::move(password),MyEnums::WorkPosition::Manager, workRole, employeeDate, salary, accessLevel, std::move(name),std::move(phone), age),
                   _employeeList(std::move(employeeList))
                         {
                                 this->_schedule = _schedule;
@@ -54,13 +54,13 @@ void Manager::parse(std::string data)
 {
     std::vector<std::string> parts = Utilities::split(data, ':');
     _employeeKeys.clear();
-    for(unsigned int i = 1; i < parts.size()-7; i++) {
+    for(unsigned int i = 1; i < parts.size()-9; i++) {
        _employeeKeys.push_back(parts[i]);
     }
 
     //grabbing the rest of the parts to parse them with employee, using string stream
     std::stringstream ss;
-    for (auto i = parts.begin() + parts.size()-7; i != parts.end(); ++i) {
+    for (auto i = parts.begin() + parts.size()-9; i != parts.end(); ++i) {
         ss << *i;
         if (i + 1 != parts.end()) {
             ss << ":";

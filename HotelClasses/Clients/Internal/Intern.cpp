@@ -4,14 +4,14 @@
 ///Constructor
 //default
 Intern::Intern(){};
-Intern::Intern(MyEnums::Department workRole, const HTime& employeDate, float salary,
+Intern::Intern(std::string email, std::string password,MyEnums::Department workRole, const HTime& employeDate, float salary,
                 unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-                    :Employee(MyEnums::WorkPosition::Intern,workRole, employeDate, salary, acessLevel, std::move(name), std::move(phone), std::move(age)){};
+                    :Employee(std::move(email), std::move(password),MyEnums::WorkPosition::Intern,workRole, employeDate, salary, acessLevel, std::move(name), std::move(phone), std::move(age)){};
 
 //create with references
-Intern::Intern(std::vector<std::string> references,MyEnums::Department workRole,const HTime& employeDate, float salary,
+Intern::Intern(std::vector<std::string> references,std::string email, std::string password,MyEnums::Department workRole,const HTime& employeDate, float salary,
                 unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-                    :Employee(MyEnums::WorkPosition::Intern, workRole, employeDate, salary, acessLevel, std::move(name), std::move(phone), std::move(age))
+                    :Employee(std::move(email), std::move(password),MyEnums::WorkPosition::Intern, workRole, employeDate, salary, acessLevel, std::move(name), std::move(phone), std::move(age))
                 ,_references(std::move(references)){};
 
 Intern::~Intern()=default;
@@ -28,12 +28,12 @@ void Intern::parse(std::string data)
 {
     std::vector<std::string> parts = Utilities::split(data, ':');
     _references.clear();
-    for(unsigned int i=1;i<parts.size()-7;i++)
+    for(unsigned int i=1;i<parts.size()-9;i++)
     {
         _references.push_back(parts[i]);
     }
     std::stringstream ss;
-    for (auto i = parts.begin() + parts.size()-7; i != parts.end(); ++i) { // we need the last 9 parts?
+    for (auto i = parts.begin() + parts.size()-9; i != parts.end(); ++i) { // we need the last 9 parts?
         ss << *i;
         if (i + 1 != parts.end()) {
             ss << ":";

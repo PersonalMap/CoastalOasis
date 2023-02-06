@@ -14,17 +14,17 @@ public:
     ///*Constructors*/
             //default constructor
             Manager();
-    Manager(MyEnums::Department workRole, const HTime& employeeDate, float salary,
+    Manager(std::string email, std::string password, MyEnums::Department workRole, const HTime& employeeDate, float salary,
             unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
 
             //employee list ,  constructor
-    Manager(const std::map<std::string, std::shared_ptr<Employee>> employeeList, MyEnums::Department workRole,
+    Manager(const std::map<std::string, std::shared_ptr<Employee>> employeeList,std::string email, std::string password,  MyEnums::Department workRole,
             const HTime& employeeDate, float salary, unsigned int accessLevel,
             std::string name, std::string phone, unsigned int age);
 
             //employee list + finished schedule , constructor
     Manager(  const WeeklySchedule& _schedule,std::map<std::string, std::shared_ptr<Employee>> employeeList,
-             MyEnums::Department workRole, const HTime& employeeDate, float salary,
+              std::string email, std::string password, MyEnums::Department workRole, const HTime& employeeDate, float salary,
              unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
 
     ~Manager();

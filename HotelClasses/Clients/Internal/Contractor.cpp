@@ -3,16 +3,16 @@
 
 //default
 Contractor::Contractor(){};
-Contractor::Contractor(MyEnums::Department workRole,const HTime& employeDate, float salary,
+Contractor::Contractor(std::string email, std::string password,MyEnums::Department workRole,const HTime& employeDate, float salary,
                         unsigned int acessLevel,std::string name, std::string phone, unsigned int age)
-                            :Employee(MyEnums::WorkPosition::Contractor,workRole, employeDate, salary, acessLevel,std::move(name),
+                            :Employee(std::move(email), std::move(password),MyEnums::WorkPosition::Contractor,workRole, employeDate, salary, acessLevel,std::move(name),
                       std::move(phone), age),
                       _endDate(HTime(2000, 10, 10, 10, 10)){};
 
 //init with hour salary
-Contractor::Contractor(const HTime& endDate, MyEnums::Department workRole,const HTime& employeeDate, float salary,
+Contractor::Contractor(const HTime& endDate,std::string email, std::string password, MyEnums::Department workRole,const HTime& employeeDate, float salary,
                        unsigned int accessLevel, std::string name, std::string phone, unsigned int age)
-                        :Employee(MyEnums::WorkPosition::Contractor,workRole, employeeDate, salary, accessLevel,
+                        :Employee(std::move(email), std::move(password),MyEnums::WorkPosition::Contractor,workRole, employeeDate, salary, accessLevel,
                       std::move(name), std::move(phone), age),_endDate(endDate){};
 
 Contractor::~Contractor()=default;
@@ -21,7 +21,7 @@ Contractor::~Contractor()=default;
 void Contractor::parse(std::string data)
 {
     std::vector<std::string> parts = Utilities::split(data, ':');
-    if (parts.size() != 9) {
+    if (parts.size() != 11) {
         std::cout << "wrong amount of words!" << parts.size() << " meanwhile 9 was expected";
         throw std::runtime_error("");
     }

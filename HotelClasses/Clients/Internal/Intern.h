@@ -14,10 +14,10 @@ public:
     ///Constructor
     //default
     Intern();
-    Intern(MyEnums::Department workRole, const HTime& employeeDate, float salary,
+    Intern(std::string email, std::string password,MyEnums::Department workRole, const HTime& employeeDate, float salary,
            unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
     //create with references
-    Intern(std::vector<std::string> references,MyEnums::Department workRole, const HTime& employeeDate, float salary,
+    Intern(std::vector<std::string> references,std::string email, std::string password,MyEnums::Department workRole, const HTime& employeeDate, float salary,
            unsigned int accessLevel,std::string name, std::string phone, unsigned int age);
 
     ~Intern();

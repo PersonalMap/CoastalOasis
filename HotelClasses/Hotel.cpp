@@ -1,11 +1,11 @@
 #include "Hotel.h"
 
+
 ///Constructors
 Hotel::Hotel(): _roomKey(), _userKey(), _employeeKey(), _users(), _employees(), _rooms(), _read(), _write()
 {
-
     readInHotel();
-
+    this->frameSwitcher = new FrameSwitcher(this);
 }
 Hotel::~Hotel()
 {

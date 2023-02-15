@@ -11,11 +11,10 @@
 class Home: virtual public wxFrame {
 public:
     Home();
-    Home(Hotel* hotel,FrameSwitcher* frameSwitcher);
+    Home(Hotel* hotel);
     ~Home();
 private:
     Hotel* myHotel;
-    FrameSwitcher* myFrameSwitcher;
 };
 
 #endif

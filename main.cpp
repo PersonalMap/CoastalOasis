@@ -12,8 +12,7 @@
 class MyApp : public wxApp
 {
 private:
-    Hotel myHotel;
-    FrameSwitcher* myFrameSwitcher;
+    std::unique_ptr<Hotel> myHotel;
 
 public:
     virtual bool OnInit();
@@ -28,8 +27,8 @@ wxIMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit()
 {
-    myFrameSwitcher = new FrameSwitcher(&myHotel);
-    myFrameSwitcher->SwitchToFrame(FrameType::HOME);
+    myHotel = std::make_unique<Hotel>();
+    myHotel->getFrameSwitcher()->SwitchToFrame(FrameType::HOME);
 
     return true;
 }

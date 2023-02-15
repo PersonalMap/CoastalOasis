@@ -3,10 +3,9 @@
 #include "ClientDashBoard.h"
 Login::Login() = default;
 
-Login::Login(Hotel* hotel, FrameSwitcher* frameSwitcher) : wxFrame(NULL, wxID_ANY, "Login Frame", wxDefaultPosition, wxDefaultSize)
+Login::Login(Hotel* hotel) : wxFrame(NULL, wxID_ANY, "Login Frame", wxDefaultPosition, wxDefaultSize)
 {
     myHotel = hotel;
-    myFrameSwitcher = frameSwitcher;
     this->SetSize(800,600);
     this->SetTitle("My Hotel");
     this->Centre();
@@ -97,7 +96,7 @@ Login::Login(Hotel* hotel, FrameSwitcher* frameSwitcher) : wxFrame(NULL, wxID_AN
         if (CheckCredentials(phone, password))
         {
             //Credentials are valid, switch to client dashboard
-            myFrameSwitcher->SwitchToFrame(FrameType::CLIENT_DASHBOARD);
+            myHotel->getFrameSwitcher()->SwitchToFrame(FrameType::CLIENT_DASHBOARD);
         }
         else
         {

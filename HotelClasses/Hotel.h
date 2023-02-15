@@ -7,6 +7,7 @@
 
 #include "../DataBase/Read.h"
 #include "../DataBase/Write.h"
+#include "FrameSwitcher.h"
 
 #include "user.h"
 #include "employee.h"
@@ -20,6 +21,7 @@ private:
      bool _isEmployee;
      bool _isUser;
 
+     FrameSwitcher* frameSwitcher;
      std::string _userKey;
      std::string _employeeKey;
      unsigned int _roomKey;
@@ -34,7 +36,6 @@ private:
 
 public:
     ///Constructors
-
     Hotel();
     ~Hotel();
 
@@ -53,6 +54,8 @@ public:
     const std::string& getCurrentUserKey()const{return this->_userKey;}
     const std::string& getCurrentEmployeeKey()const{return this->_employeeKey;}
     const unsigned int& getCurrentRoomKey()const{return this->_roomKey;}
+
+    FrameSwitcher* getFrameSwitcher(){return this->frameSwitcher;}
 
     //keys
     void setActiveUserByObject(const User& user){this->_userKey = getUserKey(user);}

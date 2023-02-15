@@ -15,11 +15,10 @@ class Login : public wxFrame {
 
 private:
     Hotel* myHotel;
-    FrameSwitcher* myFrameSwitcher;
     bool CheckCredentials(const wxString& phone, const wxString& password);
 public:
     Login();
-    Login(Hotel* hotel, FrameSwitcher* frameSwitcher);
+    Login(Hotel* hotel);
     ~Login();
 
 };

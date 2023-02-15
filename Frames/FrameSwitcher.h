@@ -1,12 +1,13 @@
 #ifndef COASTALOASIS_FRAMESWITCHER_H
 #define COASTALOASIS_FRAMESWITCHER_H
+
 #include <memory>
 #include <wx/wx.h>
-#include "../Hotel.h"
 
 class Login;
 class Home;
 class ClientDashBoard;
+class Hotel;
 
 enum class FrameType {
     HOME,
@@ -16,9 +17,18 @@ enum class FrameType {
 
 class FrameSwitcher : public wxFrame {
 public:
-    FrameSwitcher(Hotel* hotel);
+    explicit FrameSwitcher(Hotel* hotel);
+    ~FrameSwitcher();
     void SwitchToFrame(FrameType frameType);
-    void setHotel(Hotel* hotel){myHotel = hotel;}
+    void setHotel(Hotel* hotel) { myHotel = hotel; }
+
+    static FrameSwitcher*& GetLastActiveInstance() {
+        static FrameSwitcher* lastActiveInstance = nullptr;
+        return lastActiveInstance;
+    }
+    static FrameSwitcher* lastActiveInstance;
+    void HideCurrentForm();
+
 
 private:
     wxWindow* currentWindow;
@@ -31,4 +41,5 @@ private:
 };
 
 #endif //COASTALOASIS_FRAMESWITCHER_H
+
 

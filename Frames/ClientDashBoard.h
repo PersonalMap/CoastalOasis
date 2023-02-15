@@ -10,11 +10,10 @@ class ClientDashBoard : public wxFrame
 {
 public:
     ClientDashBoard();
-    ClientDashBoard(Hotel *hotel, FrameSwitcher* frameSwitcher);
+    ClientDashBoard(Hotel *hotel);
 
 private:
     Hotel *myHotel;
-    FrameSwitcher* myFrameSwitcher;
 };
 
 

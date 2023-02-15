@@ -4,10 +4,9 @@
 #include "Home.h"
 
 Home::Home() = default;
-Home::Home(Hotel* hotel, FrameSwitcher* frameSwitcher) : wxFrame(NULL, wxID_ANY, "Home Frame", wxDefaultPosition, wxDefaultSize)
+Home::Home(Hotel* hotel) : wxFrame(NULL, wxID_ANY, "Home Frame", wxDefaultPosition, wxDefaultSize)
 {
     myHotel = hotel;
-    myFrameSwitcher = frameSwitcher;
     this->SetSize(800,600);
     this->SetTitle("My Frame");
     this->Centre();
@@ -58,7 +57,7 @@ Home::Home(Hotel* hotel, FrameSwitcher* frameSwitcher) : wxFrame(NULL, wxID_ANY,
     ///EVENT HANDLERS
     Login_label->Bind(wxEVT_LEFT_UP, [this](wxMouseEvent& event)
     {
-        myFrameSwitcher->SwitchToFrame(FrameType::LOGIN);
+        myHotel->getFrameSwitcher()->SwitchToFrame(FrameType::LOGIN);
     });
 
 

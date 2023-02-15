@@ -87,11 +87,68 @@ Login::Login(Hotel* hotel, FrameSwitcher* frameSwitcher) : wxFrame(NULL, wxID_AN
 
 
 
+
     ///EVENT HANDLERS
-    Header_label->Bind(wxEVT_LEFT_UP, [this](wxMouseEvent& event)
+    login_button->Bind(wxEVT_LEFT_UP, [this, phone_text, password_text](wxMouseEvent& event)
     {
-        myFrameSwitcher->SwitchToFrame(FrameType::HOME);
+        wxString phone = phone_text->GetValue();
+        wxString password = password_text->GetValue();
+
+        if (CheckCredentials(phone, password))
+        {
+            //Credentials are valid, switch to client dashboard
+            myFrameSwitcher->SwitchToFrame(FrameType::CLIENT_DASHBOARD);
+        }
+        else
+        {
+            //Credentials are invalid, show error message
+            wxMessageBox("Invalid login credentials. Please try again.");
+        }
     });
+
+
 }
 
 Login::~Login() = default;
+
+bool Login::CheckCredentials(const wxString& phone, const wxString& password)
+{
+    bool credentialsValid = false;
+
+    // Check if phone number exists in users vector
+    if (this->myHotel->hasUser(phone.ToStdString())) {
+        // Get the user object from the hotel
+        std::shared_ptr<User> user = myHotel->getUser(phone.ToStdString());
+
+        // Check if the password matches
+        if (user->getPassword() == password.ToStdString()) {
+            credentialsValid = true;
+
+            // Set the active user in the hotel
+            myHotel->setActiveUserByObject(*user);
+            // Set isEmployee to false
+            myHotel->setIsEmployee(false);
+        }
+    }
+
+    // Check if phone number exists in employees vector
+    if (myHotel->hasEmployee(phone.ToStdString())) {
+        // Get the employee object from the hotel
+        std::shared_ptr<Employee> employee = myHotel->getEmployee(phone.ToStdString());
+
+        // Check if the password matches
+        if (employee->getPassword() == password.ToStdString()) {
+            credentialsValid = true;
+
+            // Set the active employee in the hotel
+            myHotel->setActiveEmployeeByObject(*employee);
+            // Set isEmployee to true
+            myHotel->setIsEmployee(true);
+        }
+    }
+
+    // Return true if credentials are valid, false otherwise
+    return credentialsValid;
+}
+
+

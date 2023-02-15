@@ -88,4 +88,13 @@ s1->Add(body_Panel, 4, wxEXPAND);
 s1->Add(footer_Panel, 1, wxEXPAND);
 
 right->SetSizerAndFit(s1);
+
+
+    ///EVENT HANDLERS
+    Login_label->Bind(wxEVT_LEFT_UP, [this](wxMouseEvent& event)
+    {
+        if(!myFrameSwitcher)
+        {myFrameSwitcher = new FrameSwitcher(myHotel);}
+        myFrameSwitcher->SwitchToFrame(FrameType::HOME);
+    });
 }

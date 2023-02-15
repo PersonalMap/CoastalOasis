@@ -9,7 +9,7 @@
 #include "FrameSwitcher.h"
 
 class Home;
-class ClientDashBoard;
+class UserDashBoard;
 
 class Login : public wxFrame {
 

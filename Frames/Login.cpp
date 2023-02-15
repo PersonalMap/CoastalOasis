@@ -1,6 +1,6 @@
 #include "Login.h"
 #include "Home.h"
-#include "ClientDashBoard.h"
+#include "UserDashBoard.h"
 Login::Login() = default;
 
 Login::Login(Hotel* hotel) : wxFrame(NULL, wxID_ANY, "Login Frame", wxDefaultPosition, wxDefaultSize)
@@ -96,7 +96,16 @@ Login::Login(Hotel* hotel) : wxFrame(NULL, wxID_ANY, "Login Frame", wxDefaultPos
         if (CheckCredentials(phone, password))
         {
             //Credentials are valid, switch to client dashboard
-            myHotel->getFrameSwitcher()->SwitchToFrame(FrameType::CLIENT_DASHBOARD);
+            if(myHotel->getIsEmployee()) //switch to user portal if user
+            {
+                myHotel->getFrameSwitcher()->SwitchToFrame(FrameType::EMPLOYEE_DASHBOARD);
+            } else //switch to employee portal if employee
+            {
+                myHotel->getFrameSwitcher()->SwitchToFrame(FrameType::USER_DASHBOARD);
+            }
+
+
+
         }
         else
         {

@@ -6,13 +6,15 @@
 
 class Login;
 class Home;
-class ClientDashBoard;
+class UserDashBoard;
+class EmployeeDashBoard;
 class Hotel;
 
 enum class FrameType {
     HOME,
     LOGIN,
-    CLIENT_DASHBOARD
+    USER_DASHBOARD,
+    EMPLOYEE_DASHBOARD
 };
 
 class FrameSwitcher : public wxFrame {
@@ -37,7 +39,8 @@ private:
     FrameType currentFrame;
     std::unique_ptr<Home> homeWindow;
     std::unique_ptr<Login> loginWindow;
-    std::unique_ptr<ClientDashBoard> clientDashBoardWindow;
+    std::unique_ptr<UserDashBoard> userDashBoardWindow;
+    std::unique_ptr<EmployeeDashBoard> employeeDashBoardWindow;
 };
 
 #endif //COASTALOASIS_FRAMESWITCHER_H

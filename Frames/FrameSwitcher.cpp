@@ -1,7 +1,8 @@
 #include "FrameSwitcher.h"
 #include "Home.h"
 #include "Login.h"
-#include "ClientDashBoard.h"
+#include "UserDashBoard.h"
+#include "EmployeeDashBoard.h"
 #include "../Hotel.h"
 
 FrameSwitcher* FrameSwitcher::lastActiveInstance = nullptr;
@@ -14,7 +15,8 @@ FrameSwitcher::FrameSwitcher(Hotel* hotel) : currentFrame(FrameType::LOGIN) {
     myHotel = hotel;
     homeWindow = std::make_unique<Home>(myHotel);
     loginWindow = std::make_unique<Login>(myHotel);
-    clientDashBoardWindow = std::make_unique<ClientDashBoard>(myHotel);
+    userDashBoardWindow = std::make_unique<UserDashBoard>(myHotel);
+    employeeDashBoardWindow = std::make_unique<EmployeeDashBoard>(myHotel);
     SwitchToFrame(currentFrame);
 }
 
@@ -39,12 +41,20 @@ void FrameSwitcher::SwitchToFrame(FrameType frameType) {
                 currentWindow = loginWindow.get();
             }
             break;
-        case FrameType::CLIENT_DASHBOARD:
-            if (clientDashBoardWindow) {
-                currentWindow = clientDashBoardWindow.get();
+        case FrameType::USER_DASHBOARD:
+            if (userDashBoardWindow) {
+                currentWindow = userDashBoardWindow.get();
             } else {
-                clientDashBoardWindow = std::make_unique<ClientDashBoard>(myHotel);
-                currentWindow = clientDashBoardWindow.get();
+                userDashBoardWindow = std::make_unique<UserDashBoard>(myHotel);
+                currentWindow = userDashBoardWindow.get();
+            }
+            break;
+        case FrameType::EMPLOYEE_DASHBOARD:
+            if (employeeDashBoardWindow) {
+                currentWindow = employeeDashBoardWindow.get();
+            } else {
+                employeeDashBoardWindow = std::make_unique<EmployeeDashBoard>(myHotel);
+                currentWindow = employeeDashBoardWindow.get();
             }
             break;
     }
@@ -61,9 +71,14 @@ void FrameSwitcher::SwitchToFrame(FrameType frameType) {
                 lastWindow = std::move(loginWindow);
             }
             break;
-        case FrameType::CLIENT_DASHBOARD:
-            if (clientDashBoardWindow) {
-                lastWindow = std::move(clientDashBoardWindow);
+        case FrameType::USER_DASHBOARD:
+            if (userDashBoardWindow) {
+                lastWindow = std::move(userDashBoardWindow);
+            }
+            break;
+        case FrameType::EMPLOYEE_DASHBOARD:
+            if (employeeDashBoardWindow) {
+                lastWindow = std::move(employeeDashBoardWindow);
             }
             break;
     }
@@ -90,8 +105,11 @@ FrameSwitcher::~FrameSwitcher()
         if (loginWindow) {
             loginWindow->Show(false);
         }
-        if (clientDashBoardWindow) {
-            clientDashBoardWindow->Show(false);
+        if (userDashBoardWindow) {
+            userDashBoardWindow->Show(false);
+        }
+        if (employeeDashBoardWindow) {
+            employeeDashBoardWindow->Show(false);
         }
     }
 }

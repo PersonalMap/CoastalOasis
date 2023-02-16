@@ -1,6 +1,5 @@
 #include "UserDashBoard.h"
 #include "../Hotel.h"
-#include "wx/splitter.h"
 
 UserDashBoard::UserDashBoard(): wxFrame(NULL, wxID_ANY, "My Frame") {};
 UserDashBoard::UserDashBoard(Hotel *hotel): wxFrame(NULL, wxID_ANY, "My Frame") {
@@ -14,7 +13,7 @@ wxSplitterWindow *splitter = new wxSplitterWindow(this, wxID_ANY, wxDefaultPosit
 
 
 wxPanel *left = new wxPanel(splitter);
-wxPanel *right = new wxPanel(splitter);
+right = new wxPanel(splitter);
 
 left->SetBackgroundColour(wxColour(251, 139, 36));
 right->SetBackgroundColour(wxColour(255, 255, 255));
@@ -26,7 +25,7 @@ splitter->SetSashGravity(0.0);
 /// right side of splitter
 wxPanel *header_Panel = new wxPanel(right);
 header_Panel->SetBackgroundColour(wxColour(91, 192, 190));
-wxPanel *body_Panel = new wxPanel(right);
+body_Panel = new wxPanel(right);
 body_Panel->SetBackgroundColour(wxColour(233, 227, 230));
 wxPanel *footer_Panel = new wxPanel(right);
 footer_Panel->SetBackgroundColour(wxColour(89, 65, 87));
@@ -91,8 +90,68 @@ right->SetSizerAndFit(s1);
 
 
     ///EVENT HANDLERS
-    Login_label->Bind(wxEVT_LEFT_UP, [this](wxMouseEvent& event) {
-        myHotel->getFrameSwitcher()->SwitchToFrame(FrameType::HOME);
-    });
+    Login_label->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent& event) { this->myHotel->getFrameSwitcher()->SwitchToFrame(FrameType::HOME);});
 
+    Room_label->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent& event) { this->SwitchBodyPanel(BodyPanelType::RoomInfo); });
+
+    bookActivity_label->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent& event) { this->SwitchBodyPanel(BodyPanelType::Activities); });
+
+    reservation_label->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent& event) { this->SwitchBodyPanel(BodyPanelType::Reservations); });
+
+    settings_label->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent& event) { this->SwitchBodyPanel(BodyPanelType::Settings); });
+
+    bookDining_label->Bind(wxEVT_LEFT_DOWN, [this](wxMouseEvent& event) { this->SwitchBodyPanel(BodyPanelType::BookDining); }, wxID_ANY);
+
+
+
+
+}
+
+void UserDashBoard::SwitchBodyPanel(BodyPanelType panelType) {
+    wxPanel *newBodyPanel;
+    wxColour newBodyColor;
+
+    switch (panelType) {
+        case BodyPanelType::DEFAULT:
+            newBodyPanel = new wxPanel(this->right);
+            newBodyColor = wxColour(233, 227, 230);
+            break;
+        case BodyPanelType::Activities:
+            newBodyPanel = new wxPanel(this->right);
+            newBodyColor = wxColour(255, 0, 0);
+            break;
+        case BodyPanelType::BookDining:
+            newBodyPanel = new wxPanel(this->right);
+            newBodyColor = wxColour(233, 255, 0);
+            break;
+        case BodyPanelType::Reservations:
+            newBodyPanel = new wxPanel(this->right);
+            newBodyColor = wxColour(0, 253, 123);
+            break;
+        case BodyPanelType::RoomInfo:
+            newBodyPanel = new wxPanel(this->right);
+            newBodyColor = wxColour(123, 255, 0);
+            break;
+        case BodyPanelType::Settings:
+            newBodyPanel = new wxPanel(this->right);
+            newBodyColor = wxColour(0, 255, 23);
+            break;
+        default:
+            newBodyPanel = new wxPanel(this->right);
+            newBodyColor = wxColour(233, 227, 230);
+            break;
+    }
+
+    // Remove the current body panel from the sizer and delete it
+    wxSizer *sizer = this->right->GetSizer();
+    sizer->Detach(this->body_Panel);
+    delete this->body_Panel;
+
+    // Set the new body panel and add it to the sizer
+    this->body_Panel = newBodyPanel;
+    this->body_Panel->SetBackgroundColour(newBodyColor);
+    sizer->Add(this->body_Panel, 4, wxEXPAND);
+
+    // Refresh the layout
+    sizer->Layout();
 }

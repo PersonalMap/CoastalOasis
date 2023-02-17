@@ -44,11 +44,11 @@ file(GLOB_RECURSE SOURCE_FILES
         "${PROJECT_SOURCE_DIR}/DataBase/*.h"
         )
 
-# Add main.cpp as the only source file that is not in subfolders
+# Add main.cpp as the only source file that is not in subfolderss
 list(APPEND SOURCE_FILES "${PROJECT_SOURCE_DIR}/main.cpp")
 
 # Create the executable
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} Frames/FrameSwitcher.cpp Frames/Home.cpp Frames/Login.cpp Frames/UserDashBoard.cpp)
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} Frames/FrameSwitcher.cpp Frames/Home.cpp Frames/Login.cpp Frames/UserDashBoard.cpp  )
 
 # Link the executable with the wxWidgets libraries
 target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})

@@ -2,7 +2,6 @@
 #include "myPanels/ActivitiesPanel.h"
 #include "myPanels/BookDiningPanel.h"
 #include "myPanels/ReservationsPanel.h"
-#include "myPanels/myPanel.h"
 #include "myPanels/ReservationsPanel.h"
 #include "myPanels/RoomInfoPanel.h"
 #include "myPanels/SettingsPanel.h"
@@ -30,11 +29,11 @@ splitter->SplitVertically(left,right,200);
 splitter->SetSashGravity(0.0);
 
 /// right side of splitter
-wxPanel *header_Panel = new wxPanel(right);
+header_Panel = new wxPanel(right);
 header_Panel->SetBackgroundColour(wxColour(91, 192, 190));
 body_Panel = new wxPanel(right);
 body_Panel->SetBackgroundColour(wxColour(233, 227, 230));
-wxPanel *footer_Panel = new wxPanel(right);
+footer_Panel = new wxPanel(right);
 footer_Panel->SetBackgroundColour(wxColour(89, 65, 87));
 
 ///nav bar
@@ -91,9 +90,11 @@ left->SetSizerAndFit(leftsizer);
 wxBoxSizer *s1 = new wxBoxSizer(wxVERTICAL);
 s1->Add(header_Panel, 1, wxEXPAND);
 s1->Add(body_Panel, 4, wxEXPAND);
+s1->AddStretchSpacer(1);  // add a spacer to push footer_Panel to the bottom
 s1->Add(footer_Panel, 1, wxEXPAND);
 
-right->SetSizerAndFit(s1);
+
+    right->SetSizerAndFit(s1);
 
 
     ///EVENT HANDLERS
@@ -115,7 +116,7 @@ right->SetSizerAndFit(s1);
 }
 
 void UserDashBoard::SwitchBodyPanel(BodyPanelType panelType) {
-    MyPanel *newBodyPanel;
+    wxPanel *newBodyPanel;
     wxString labelText;
     wxFont labelFont;
 
@@ -123,7 +124,7 @@ void UserDashBoard::SwitchBodyPanel(BodyPanelType panelType) {
         case BodyPanelType::DEFAULT:
             labelText = "Default panel";
             labelFont = wxFont(12, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
-            newBodyPanel = new MyPanel(this->right, labelText, labelFont);
+            newBodyPanel = new wxPanel(this->right);
             break;
         case BodyPanelType::Activities:
             labelText = "Activities panel";
@@ -137,7 +138,7 @@ void UserDashBoard::SwitchBodyPanel(BodyPanelType panelType) {
             break;
         case BodyPanelType::Reservations:
             labelText = "Reservations panel";
-            labelFont = wxFont(16, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);newBodyPanel = new ReservationsPanel(this->right, labelText, labelFont);
+            labelFont = wxFont(16, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
             newBodyPanel = new ReservationsPanel(this->right, labelText, labelFont);
             break;
         case BodyPanelType::RoomInfo:
@@ -145,24 +146,33 @@ void UserDashBoard::SwitchBodyPanel(BodyPanelType panelType) {
             labelFont = wxFont(16, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
             newBodyPanel = new RoomInfoPanel(this->right, labelText, labelFont);
             break;
+        case BodyPanelType::Settings:
+            labelText = "Settings Panel";
+            labelFont = wxFont(16, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
+            newBodyPanel = new SettingsPanel(this->right, labelText, labelFont);
+            break;
             // Add cases for other panel types here
         default:
             labelText = "Default panel";
             labelFont = wxFont(12, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
-            newBodyPanel = new MyPanel(this->right, labelText, labelFont);
+            newBodyPanel = new wxPanel(this->right);
             break;
     }
 
     // Remove the current body panel from the sizer and delete it
     wxSizer *sizer = this->right->GetSizer();
     sizer->Detach(this->body_Panel);
+    sizer->Detach(this->footer_Panel);
     delete this->body_Panel;
+    this->body_Panel = nullptr;
 
     // Set the new body panel and add it to the sizer
     this->body_Panel = newBodyPanel;
     sizer->Add(this->body_Panel, 1, wxEXPAND);
+    sizer->Add(this->footer_Panel, 1, wxEXPAND);
 
     // Refresh the layout
     sizer->Layout();
 }
+
 

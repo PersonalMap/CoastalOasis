@@ -4,7 +4,6 @@
 #include "wx/splitter.h"
 #include "../Hotel.h"
 #include "FrameSwitcher.h"
-#include "myPanels/myPanel.h"
 
 class Home;
 
@@ -29,6 +28,8 @@ private:
     Hotel *myHotel;
     wxPanel *right;
     wxPanel *body_Panel;
+    wxPanel *footer_Panel;
+    wxPanel *header_Panel;
     BodyPanelType bodyPanelOption = DEFAULT;
 
 

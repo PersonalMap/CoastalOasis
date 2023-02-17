@@ -1,15 +1,19 @@
 #ifndef COASTALOASIS_BOOKDININGPANEL_H
 #define COASTALOASIS_BOOKDININGPANEL_H
 #include <wx/wx.h>
-#include "myPanel.h"
 
 
-class BookDiningPanel : public MyPanel {
+class BookDiningPanel : public wxPanel {
 public:
     BookDiningPanel(wxWindow *parent, const wxString& text, const wxFont& font)
-            : MyPanel(parent, text, font) {
-        SetBackgroundColour(wxColour(233, 255, 0));
-        // ... panel-specific initialization ...
+            : wxPanel(parent) {
+
+        wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
+        wxStaticText *label = new wxStaticText(this, wxID_ANY, text);
+        label->SetFont(font);
+        sizer->Add(label, 1, wxEXPAND);
+        SetSizer(sizer);
+        SetBackgroundColour(wxColour(255, 0, 0));
     }
 };
 

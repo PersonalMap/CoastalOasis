@@ -1,14 +1,17 @@
 #ifndef COASTALOASIS_RESERVATIONSPANEL_H
 #define COASTALOASIS_RESERVATIONSPANEL_H
-#include "myPanel.h"
 #include <wx/wx.h>
 
-class ReservationsPanel : public MyPanel {
+class ReservationsPanel : public wxPanel {
 public:
     ReservationsPanel(wxWindow *parent, const wxString& text, const wxFont& font)
-            : MyPanel(parent, text, font) {
-        SetBackgroundColour(wxColour(0, 253, 123));
-        // ... panel-specific initialization ...
+            : wxPanel(parent) {
+        wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
+        wxStaticText *label = new wxStaticText(this, wxID_ANY, text);
+        label->SetFont(font);
+        sizer->Add(label, 1, wxEXPAND);
+        SetSizer(sizer);
+        SetBackgroundColour(wxColour(255, 0, 0));
     }
 };
 

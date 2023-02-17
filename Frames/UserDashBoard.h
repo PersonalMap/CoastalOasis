@@ -4,6 +4,7 @@
 #include "wx/splitter.h"
 #include "../Hotel.h"
 #include "FrameSwitcher.h"
+#include "myPanels/myPanel.h"
 
 class Home;
 

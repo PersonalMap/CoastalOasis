@@ -17,6 +17,7 @@ include_directories(
         HotelClasses/Rooms
         HotelClasses/Bookings
         Frames
+        Frames/myPanels
         DataBase
         DataBase/Data
         )
@@ -37,6 +38,8 @@ file(GLOB_RECURSE SOURCE_FILES
         "${PROJECT_SOURCE_DIR}/HotelClasses/Bookings/*.h"
         "${PROJECT_SOURCE_DIR}/Frames/*.cpp"
         "${PROJECT_SOURCE_DIR}/Frames/*.h"
+        "${PROJECT_SOURCE_DIR}/Frames/myPanels*.cpp"
+        "${PROJECT_SOURCE_DIR}/Frames/myPanels*.h"
         "${PROJECT_SOURCE_DIR}/DataBase/*.cpp"
         "${PROJECT_SOURCE_DIR}/DataBase/*.h"
         )

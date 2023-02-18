@@ -149,7 +149,7 @@ void UserDashBoard::SwitchBodyPanel(BodyPanelType panelType) {
         case BodyPanelType::Settings:
             labelText = "Settings Panel";
             labelFont = wxFont(16, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
-            newBodyPanel = new SettingsPanel(this->right, labelText, labelFont);
+            newBodyPanel = new SettingsPanel(this->right, labelFont, myHotel->getUser(myHotel->getCurrentUserKey()));
             break;
             // Add cases for other panel types here
         default:

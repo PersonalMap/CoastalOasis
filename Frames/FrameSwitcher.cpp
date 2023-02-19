@@ -89,8 +89,9 @@ void FrameSwitcher::SwitchToFrame(FrameType frameType) {
     }
 
     lastWindow.reset();
-    currentWindow->Show(true);
+    currentWindow->Show(true); //show current window
     currentFrame = frameType;
+    UpdateForm(); //update labels
 }
 
 FrameSwitcher::~FrameSwitcher()
@@ -114,4 +115,32 @@ FrameSwitcher::~FrameSwitcher()
     }
 }
 
+void FrameSwitcher::UpdateForm() {
+    switch (currentFrame) {
+        case FrameType::HOME:
+            // Call the appropriate method on the homeWindow pointer
+            if (homeWindow) {
+                homeWindow->UpdateHome();
+            }
+            break;
+        case FrameType::LOGIN:
+            // Call the appropriate method on the loginWindow pointer
+            if (loginWindow) {
+                loginWindow->UpdateLogin();
+            }
+            break;
+        case FrameType::USER_DASHBOARD:
+            // Call the appropriate method on the userDashBoardWindow pointer
+            if (userDashBoardWindow) {
+                userDashBoardWindow->UpdateUserDashboard();
+            }
+            break;
+        case FrameType::EMPLOYEE_DASHBOARD:
+            // Call the appropriate method on the employeeDashBoardWindow pointer
+            if (employeeDashBoardWindow) {
+                employeeDashBoardWindow->UpdateEmployeeDashboard();
+            }
+            break;
+    }
+}
 

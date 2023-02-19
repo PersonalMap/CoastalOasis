@@ -22,6 +22,7 @@ public:
     UserDashBoard();
     UserDashBoard(Hotel *hotel);
     void SwitchBodyPanel(BodyPanelType panelType);
+    void UpdateUserDashboard();
 
 
 private:
@@ -31,6 +32,8 @@ private:
     wxPanel *footer_Panel;
     wxPanel *header_Panel;
     BodyPanelType bodyPanelOption = DEFAULT;
+
+    wxStaticText *Name_label;
 
 
 };

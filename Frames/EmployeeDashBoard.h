@@ -12,6 +12,8 @@ public:
     EmployeeDashBoard();
     EmployeeDashBoard(Hotel *hotel);
 
+    void UpdateEmployeeDashboard();
+
 private:
     Hotel *myHotel;
 };

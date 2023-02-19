@@ -1,10 +1,11 @@
 #include "../../Clients/External/user.h"
+#include "../Hotel.h"
 #include <wx/string.h>
 
 class SettingsPanel : public wxPanel {
 public:
-    SettingsPanel(wxWindow *parent, const wxFont &font, std::shared_ptr<User> user)
-            : wxPanel(parent), m_user(user),m_phoneValue(new wxStaticText(this, wxID_ANY, wxString::FromUTF8(user->getPhone().c_str()))),
+    SettingsPanel(wxWindow *parent, const wxFont &font, std::shared_ptr<User> user, Hotel* hotel)
+            : wxPanel(parent), myHotel(hotel),m_user(user),m_phoneValue(new wxStaticText(this, wxID_ANY, wxString::FromUTF8(user->getPhone().c_str()))),
               m_emailValue(new wxStaticText(this, wxID_ANY, wxString::FromUTF8(user->getMail().c_str()))),
               m_passwordValue(new wxStaticText(this, wxID_ANY, wxString::FromUTF8(user->getPassword().c_str())))
 
@@ -77,6 +78,7 @@ public:
     }
 
 private:
+    Hotel* myHotel;
     std::shared_ptr<User> m_user;
     wxStaticText *m_phoneLabel;
     wxStaticText *m_phoneValue;
@@ -99,6 +101,8 @@ private:
                 std::string phoneValueStr = std::string(phoneValue.mb_str());
                 m_phoneValue->SetLabel(phoneValue);
                 m_user->setPhone(phoneValueStr);
+                myHotel->writeHotel(); //write to hotel
+                myHotel->getFrameSwitcher()->UpdateForm(); //update frames
             }
         } else if (btn == m_emailEditBtn) {
             wxTextEntryDialog dialog(this, "Enter new email:", "Email", m_emailValue->GetLabel());
@@ -107,6 +111,8 @@ private:
                 std::string emailValueStr = std::string(emailValue.mb_str());
                 m_emailValue->SetLabel(emailValue);
                 m_user->setMail(emailValueStr);
+                myHotel->writeHotel(); //write to hotel
+                myHotel->getFrameSwitcher()->UpdateForm(); //update frames
             }
         } else if (btn == m_passwordEditBtn) {
             wxPasswordEntryDialog dialog(this, "Enter new password:", "Password");
@@ -115,6 +121,8 @@ private:
                 std::string passwordValueStr = std::string(passwordValue.mb_str());
                 m_passwordValue->SetLabel(passwordValue);
                 m_user->setPassword(passwordValueStr);
+                myHotel->writeHotel(); //write to hotel
+                myHotel->getFrameSwitcher()->UpdateForm(); //update frames
             }
         }
     }

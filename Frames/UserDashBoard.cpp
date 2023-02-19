@@ -64,7 +64,7 @@ wxFont font1 = settings_label->GetFont();
 font1.SetPointSize(18);
 font1.SetWeight(wxFONTWEIGHT_MEDIUM);
 settings_label->SetFont(font1);
-wxStaticText *Name_label = new wxStaticText(left, wxID_ANY, "Viktor");
+Name_label = new wxStaticText(left, wxID_ANY, "Viktor");
 Name_label->SetFont(font1);
 wxStaticText *Room_label = new wxStaticText(left, wxID_ANY, "Room Info");
 Room_label->SetFont(font1);
@@ -149,7 +149,7 @@ void UserDashBoard::SwitchBodyPanel(BodyPanelType panelType) {
         case BodyPanelType::Settings:
             labelText = "Settings Panel";
             labelFont = wxFont(16, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD);
-            newBodyPanel = new SettingsPanel(this->right, labelFont, myHotel->getUser(myHotel->getCurrentUserKey()));
+            newBodyPanel = new SettingsPanel(this->right, labelFont, myHotel->getUser(myHotel->getCurrentUserKey()), myHotel);
             break;
             // Add cases for other panel types here
         default:
@@ -168,11 +168,16 @@ void UserDashBoard::SwitchBodyPanel(BodyPanelType panelType) {
 
     // Set the new body panel and add it to the sizer
     this->body_Panel = newBodyPanel;
-    sizer->Add(this->body_Panel, 1, wxEXPAND);
+    sizer->Add(this->body_Panel, 4, wxEXPAND);
     sizer->Add(this->footer_Panel, 1, wxEXPAND);
 
     // Refresh the layout
     sizer->Layout();
 }
 
+
+void UserDashBoard::UpdateUserDashboard()
+{
+    Name_label->SetLabel(myHotel->getUser(myHotel->getCurrentUserKey())->getName());
+}
 

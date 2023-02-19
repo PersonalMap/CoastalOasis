@@ -20,6 +20,7 @@ public:
     Login();
     Login(Hotel* hotel);
     ~Login();
+    void UpdateLogin();
 
 };
 

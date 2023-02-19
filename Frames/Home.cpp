@@ -67,3 +67,9 @@ Home::~Home()
 {
 
 }
+
+
+void Home::UpdateHome()
+{
+
+}

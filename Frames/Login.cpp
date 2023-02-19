@@ -160,3 +160,10 @@ bool Login::CheckCredentials(const wxString& phone, const wxString& password)
 }
 
 
+void Login::UpdateLogin()
+{
+
+}
+
+
+

@@ -13,6 +13,8 @@ public:
     Home();
     Home(Hotel* hotel);
     ~Home();
+
+    void UpdateHome();
 private:
     Hotel* myHotel;
 };

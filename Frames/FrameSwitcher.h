@@ -30,6 +30,7 @@ public:
     }
     static FrameSwitcher* lastActiveInstance;
     void HideCurrentForm();
+    void UpdateForm();
 
 
 private:

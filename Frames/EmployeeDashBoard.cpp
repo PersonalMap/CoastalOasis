@@ -96,3 +96,8 @@ EmployeeDashBoard::EmployeeDashBoard(Hotel *hotel): wxFrame(NULL, wxID_ANY, "Emp
     });
 
 }
+
+void EmployeeDashBoard::UpdateEmployeeDashboard()
+{
+
+}
